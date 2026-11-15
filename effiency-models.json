@@ -1,0 +1,738 @@
+{
+  "updated_at": "2026-11-15",
+  "notes": "Notas da Artificial Analysis referem-se ao Intelligence Index v5.0.1 (escala menor que versões anteriores, não comparável com números de lançamento). LMArena: snapshot de 11/11/2026. OpenRouter: dados até 14/11/2026. Números marcados como 'do fabricante' não foram auditados por terceiros.",
+  "items": [
+    {
+      "brand": "Anthropic",
+      "model": "claude-fable-5-2",
+      "description": "Claude Fable 5.2 (09/11/2026) é o modelo mais capaz amplamente disponível da Anthropic, voltado a raciocínio exigente e trabalho agêntico de longo horizonte. Contexto de 1M, saída de 128K, thinking sempre ligado; US$ 8 / US$ 40 por 1M tokens (fast mode US$ 16 / US$ 80).",
+      "when_use": "Migrações e refatorações grandes, jobs longos sem supervisão, pesquisa científica e ciência de dados multi-etapa, orquestrador/advisor de modelos menores, ou quando o Opus 5.5 em effort alto não basta. Não use para código e trabalho do dia a dia (a própria Anthropic recomenda começar pelo Opus 5.5), em fluxos sensíveis a latência, nem em cyber/bio de pesquisa (classificadores bloqueiam e fazem fallback). Exige retenção de dados de 30 dias.",
+      "effiency": "Maior teto de capacidade disponível ao público; em effort high empata com o melhor resultado do Opus 5.5 no FrontierCode 2.0 (45,3% vs 45,5%) por cerca de metade do custo por tarefa.",
+      "community_benchmark": "#1 no Artificial Analysis Intelligence Index (65 em Max, mas US$ 26,54 por tarefa) e #1 no LMArena WebDev (1838); ainda não aparece no ranking Text. No Hacker News elogiam a velocidade e as vitórias em problemas muito difíceis; criticam que no código rotineiro não se diferencia do Opus 5.5, que a cota do plano Pro acaba em poucas horas e que em effort max o custo por tarefa praticamente dobra. Ethan Mollick o descreve como 'AGI irregular': brilhante em tarefas de especialista, mas prolixo e pouco autocrítico.",
+      "sources": [
+        "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+        "https://platform.claude.com/docs/en/about-claude/models/overview",
+        "https://artificialanalysis.ai/leaderboards/models",
+        "https://arena.ai/leaderboard/webdev",
+        "https://news.ycombinator.com/item?id=50429068",
+        "https://www.oneusefulthing.org/p/fable-52-and-jagged-agi"
+      ]
+    },
+    {
+      "brand": "Anthropic",
+      "model": "claude-mythos-5-2",
+      "description": "Claude Mythos 5.2 (09/11/2026) é o mesmo modelo do Fable 5.2 (1M de contexto, 128K de saída, US$ 8 / US$ 40), sem as salvaguardas restritivas de cibersegurança e biologia. Acesso apenas para organizações verificadas pela Anthropic.",
+      "when_use": "Pesquisa de vulnerabilidades, redescoberta de CVEs, pentest e desenvolvimento de exploits legítimos, design de proteínas e biologia de pesquisa, onde o Fable bloqueia. Não use se a organização não for verificada (não há acesso), nem para código e trabalho geral, onde Fable 5.2 ou Opus 5.5 bastam.",
+      "effiency": "Desempenho de ponta em engenharia de cibersegurança e ciências da vida sem os bloqueios do Fable.",
+      "community_benchmark": "Por ter acesso restrito, não aparece no LMArena, na Artificial Analysis nem no OpenRouter. Números da Anthropic: 76,3% no CyScenarioBench (67,6% do Opus 5.5 sem salvaguardas) e 89,6% no CVE Rediscovery. Não há relatos públicos de uso direto.",
+      "sources": [
+        "https://platform.claude.com/docs/en/models/mythos-5-2/overview",
+        "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+      ]
+    },
+    {
+      "brand": "Anthropic",
+      "model": "claude-opus-5-5",
+      "description": "Claude Opus 5.5 (22/09/2026) é o Opus atual e o modelo padrão da Anthropic, chamado por ela de 'strongest daily driver'. Contexto de 1M, saída de 128K, US$ 4 / US$ 20 por 1M (fast mode US$ 8 / US$ 40); o thinking não pode ser desligado e o effort padrão é medium.",
+      "when_use": "Padrão para a maioria dos casos: coding agêntico longo, migrações de codebase, auditorias, code review e caça a bugs, sessões de várias horas, relatórios e análise financeira; também para planejar e deixar a execução com o Sonnet 5.5. Não use em tarefas simples de alto volume (Sonnet 5.5 ou Haiku 5.5 entregam quase o mesmo por menos). Evite effort max: consome 4-6x mais com pouco ganho; high/xhigh costuma ser o ponto ideal.",
+      "effiency": "Melhor relação capacidade/custo do topo de linha: #1 no Terminal-Bench 4.1 (65,76%) e perto do Fable pela metade do preço por token.",
+      "community_benchmark": "#4 no LMArena Text (1507, o Claude mais bem colocado), #2 no WebDev (1815), #3 na Artificial Analysis (59) e #1 no Terminal-Bench 4.1. É o Claude mais usado no OpenRouter (6,98T tokens na semana). No Reddit e no HN foi visto como a 'volta por cima' da Anthropic: rápido, confiável em tarefas de mais de 1 hora e com limites folgados. Queixas: autonomia demais (agir além do pedido), decisões de arquitetura questionáveis, recusas espúrias em cyber e suspeitas de 'nerf' não confirmadas por rastreadores independentes.",
+      "sources": [
+        "https://www.anthropic.com/news/claude-opus-5-5",
+        "https://platform.claude.com/docs/en/about-claude/models/overview",
+        "https://arena.ai/leaderboard/text",
+        "https://artificialanalysis.ai/leaderboards/models",
+        "https://www.benchlm.ai/benchmarks/terminal-bench-2",
+        "https://news.ycombinator.com/item?id=49946567"
+      ]
+    },
+    {
+      "brand": "Anthropic",
+      "model": "claude-sonnet-5-5",
+      "description": "Claude Sonnet 5.5 (28/09/2026) é o modelo de equilíbrio entre velocidade e inteligência da Anthropic para coding do dia a dia, agentes e uso corporativo. Contexto de 1M, saída de 128K, US$ 2 / US$ 10 por 1M; effort padrão high.",
+      "when_use": "Tarefas cotidianas bem delimitadas: correção de bugs, entendimento de codebase, documentos, planilhas, UI, iteração rápida, agentes de alto volume ou execução do plano definido pelo Opus. Não use em trabalho aberto e complexo que exige julgamento contínuo (o Opus 5.5 é claramente melhor) nem em loops agênticos sem revisão humana. Evite effort max: gera timeouts, edições fora do escopo e piora os resultados.",
+      "effiency": "Custo por tarefa: empata com o Opus 5.5 em vários benchmarks (GDPval-AA 1844 vs 1846; Terminal-Bench 4.0 70,6% vs 66,4%) pela metade do preço por token.",
+      "community_benchmark": "#3 no LMArena WebDev (1772), mas só #47 no Text (1473); 55 na Artificial Analysis (empatado em #5) e #2 no Terminal-Bench 4.1 (63,94%). No HN o tom foi 'quase todo o valor do Opus por bem menos', com testes mostrando custo 30-51% menor. Queixas: a Artificial Analysis mediu o maior consumo de tokens que já registrou (~60% acima do Opus), o custo varia mais de 18x entre níveis de effort e há quem ache o Opus 5.5 em low mais esperto e barato.",
+      "sources": [
+        "https://www.anthropic.com/news/claude-sonnet-5-5",
+        "https://platform.claude.com/docs/en/about-claude/models/overview",
+        "https://arena.ai/leaderboard/webdev",
+        "https://artificialanalysis.ai/leaderboards/models",
+        "https://news.ycombinator.com/item?id=49881850",
+        "https://thomas-wiegold.com/blog/claude-sonnet-5-5-review/"
+      ]
+    },
+    {
+      "brand": "Anthropic",
+      "model": "claude-haiku-5-5",
+      "description": "Claude Haiku 5.5 (07/10/2026) é o modelo pequeno, rápido e barato da Anthropic, o primeiro Haiku com níveis de effort (padrão medium). Contexto de 1M; US$ 0,10 / US$ 0,50 por 1M até 100K tokens de prompt e US$ 0,50 / US$ 2,50 acima disso.",
+      "when_use": "Classificação, extração, sumarização, roteamento, apoio a RAG, suporte ao vivo e subagente do Opus/Sonnet (triagem de logs, agrupamento de bugs). Não use em coding agêntico complexo, em prompts acima de 100K (preço 5x maior) nem em chat em tempo real com thinking ligado (latência alta até o primeiro token).",
+      "effiency": "Throughput por preço: é o modelo mais rápido que a Artificial Analysis já mediu (237 tokens/s), com entrada a US$ 0,10 por 1M.",
+      "community_benchmark": "36 na Artificial Analysis (empatado em #13, US$ 0,41 por tarefa), #39 no LMArena WebDev e #133 no Text; 40% no Terminal-Bench 4.0. No HN elogiam preço, velocidade e desempenho como subagente, achando-o mais esperto que o GPT-6 Luna. Críticas: o corte de preço em 100K é baixo para agentes, custa cerca de 3x mais por tarefa que o Luna e vai mal em perguntas estatísticas mais profundas.",
+      "sources": [
+        "https://www.anthropic.com/news/claude-haiku-5-5",
+        "https://platform.claude.com/docs/en/about-claude/models/overview",
+        "https://artificialanalysis.ai/leaderboards/models",
+        "https://news.ycombinator.com/item?id=49996437"
+      ]
+    },
+    {
+      "brand": "OpenAI",
+      "model": "gpt-6-astra",
+      "description": "GPT-6 Astra (03/09/2026) é o flagship de raciocínio da OpenAI para o trabalho mais exigente: raciocínio complexo, código, computer use e pesquisa. Contexto de 1,05M, saída de 128K, US$ 10 / US$ 50 por 1M (US$ 20 / US$ 75 acima de 272K de entrada).",
+      "when_use": "Tarefas mais difíceis e longas: agentes de computer use, pesquisa e síntese com muitas fontes, matemática e ciência de nível de pesquisa, recuperação em contextos de 512K a 1M. Não use em volume, chat interativo ou fluxos sensíveis a latência (primeiro token em ~230 s no esforço max); para coding do dia a dia o GPT-6.1 Sol entrega quase o mesmo por 1/5 do preço.",
+      "effiency": "Teto em computer use, matemática/ciência e contexto longo: OSWorld 2.0 72,6%, FrontierMath Tier 4 97,6%, GPQA Diamond 96,0% e MRCR v2 de 96,3% entre 512K e 1M (números do fabricante).",
+      "community_benchmark": "57 na Artificial Analysis (#4, US$ 6,24 por tarefa), #5 no LMArena WebDev (1764), #42 no Text e #7 no Agent. Usuários elogiam pesquisa e síntese (cita 3-5x mais fontes), visão e depuração difícil. Queixas: lento, caro (limites esgotam rápido), para no meio da tarefa, cauteloso demais e relatos de 'nerf' uma semana após o lançamento; o time do Opencode voltou ao modelo anterior porque o gasto dobrou.",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-6-astra",
+        "https://developers.openai.com/api/docs/pricing",
+        "https://artificialanalysis.ai/models/gpt-6-astra",
+        "https://arena.ai/leaderboard/webdev",
+        "https://news.ycombinator.com/item?id=49571621",
+        "https://decrypt.co/378101/gpt-6-astra-openai-model-dumber-nerfed"
+      ]
+    },
+    {
+      "brand": "OpenAI",
+      "model": "gpt-6.1-sol",
+      "description": "GPT-6.1 Sol (29/09/2026) é o modelo intermediário de raciocínio da OpenAI, com desempenho próximo ao Astra por custo menor, voltado a coding complexo, computer use e trabalho profissional. Contexto de 1,05M, saída de 128K, US$ 2 / US$ 10 por 1M.",
+      "when_use": "Escolha padrão da OpenAI para coding agêntico (Codex, refatoração, debugging), automação de fluxos de negócio multi-etapa, documentos e computer use; substitui os antigos modelos Codex. Não use quando precisão máxima for crítica e custo não importar (Astra), para volume barato (Terra ou Luna) ou quando precisar de baixa latência em esforço alto.",
+      "effiency": "Custo-benefício perto do topo: 75,2% no DeepSWE v1.1 a US$ 0,65 por tarefa contra 73-74% do Astra a ~US$ 4 (números do fabricante), e só 2 pontos atrás do Astra na Artificial Analysis por ~1/5 do custo.",
+      "community_benchmark": "55 na Artificial Analysis (empatado em #5 com o Sonnet 5.5, US$ 1,27 por tarefa), #6 no LMArena WebDev (1743), #30 no Text e #10 em uso semanal no OpenRouter. No HN o chamam de 'crazy no Codex', com o cache barato esticando os limites. Queixas: o Opus ainda é superior em código ('metade do preço, metade da qualidade'), lentidão em esforço medium e compactação frequente no Codex.",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+        "https://developers.openai.com/api/docs/pricing",
+        "https://techcrunch.com/2026/09/29/openai-launches-gpt-6-1-sol-says-it-nearly-matches-gpt-6-astra-and-costs-less/",
+        "https://artificialanalysis.ai/models/gpt-6-1-sol",
+        "https://openrouter.ai/rankings",
+        "https://news.ycombinator.com/item?id=49896586"
+      ]
+    },
+    {
+      "brand": "OpenAI",
+      "model": "gpt-6.1-terra",
+      "description": "GPT-6.1 Terra (26/10/2026) é o modelo rápido e econômico da OpenAI para raciocínio visual, computer use preciso e escrita natural. Contexto de 1,05M, saída de 128K, US$ 1 / US$ 5 por 1M; raciocínio de none a max.",
+      "when_use": "Agentes de computer use em escala (formulários, operar telas), raciocínio visual (comparar foto com catálogo, ler desenho técnico), redação e revisão de textos e tarefas do dia a dia onde velocidade pesa. Não use em engenharia de software complexa (a OpenAI recomenda Sol ou Astra) nem em fluxos com muitas ferramentas onde errar a ferramenta custa caro.",
+      "effiency": "Velocidade e preço em computer use e visão: segundo a OpenAI, conclui tarefas mais de 3x mais rápido que Astra e Sol por 1/10 do preço por token do Astra.",
+      "community_benchmark": "51 na Artificial Analysis (#8, US$ 0,96 por tarefa), #14 no LMArena WebDev e #10 no Agent; 74,2% no OSWorld 2.1 (o Opus 5.5 lidera com 81,8). No fórum da OpenAI dizem que é rápido, mas chama a ferramenta errada com mais frequência que o Sol e trava depois de erros; um pesquisador da própria OpenAI o chamou de 'not a bombshell release'.",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-6.1-terra",
+        "https://community.openai.com/t/gpt-6-1-terra-delivering-fast-and-capable-computer-use-at-a-lower-price/1409900",
+        "https://artificialanalysis.ai/models/gpt-6-1-terra",
+        "https://arena.ai/leaderboard/webdev"
+      ]
+    },
+    {
+      "brand": "OpenAI",
+      "model": "gpt-6-luna",
+      "description": "GPT-6 Luna (22/09/2026) é o modelo mais barato e eficiente da OpenAI para tarefas focadas de alto volume. Contexto de 1,05M, saída de 128K, US$ 0,10 / US$ 0,50 por 1M (cache a US$ 0,01); é o modelo da Decisions API, que devolve respostas tipadas.",
+      "when_use": "Classificação, extração, tagging, roteamento, parsing e JSON com schema estrito em grande volume, e subagente 'worker' sob um orquestrador mais forte. Não use em refatoração ou arquitetura crítica, entregáveis longos com várias seções, chat interativo ou com acesso de escrita ao código sem supervisão.",
+      "effiency": "Custo por chamada extremamente baixo com boa velocidade: ~90-103 tokens/s, primeiro token em ~1,6 s sem raciocínio e US$ 0,15 por tarefa no índice da Artificial Analysis.",
+      "community_benchmark": "28 na Artificial Analysis (max); #99 no LMArena Text e #46 no WebDev, mas Pareto-ótimo no Agent (US$ 0,01 por tarefa). É o modelo OpenAI mais usado no OpenRouter (#4 do mês, 34,4T tokens). Usuários elogiam a economia e a objetividade; reclamam que omite seções pedidas, tem pequenas regressões em código e deriva de instruções, com relato de código de produção apagado.",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-6-luna",
+        "https://artificialanalysis.ai/articles/gpt-6-sol-and-luna-push-the-cost-efficiency-frontier",
+        "https://openrouter.ai/rankings",
+        "https://go.tabbit.ai/blog/gpt-6-luna-review"
+      ]
+    },
+    {
+      "brand": "OpenAI",
+      "model": "gpt-6-cyber",
+      "description": "GPT-6 Cyber (05/11/2026) é a variante de segurança da geração GPT-6 para encontrar, reproduzir e validar vulnerabilidades e verificar correções em ambiente autorizado; exige aprovação no programa Daybreak Red. Contexto de 1,05M, US$ 20 / US$ 100 por 1M.",
+      "when_use": "Pesquisa ofensiva autorizada, pentest, exploits para validação, triagem e reprodução de CVEs e verificação de patches em times aprovados. Não serve para uso geral nem para quem não tem acesso Daybreak; para trabalho defensivo comum, Astra ou Sol bastam.",
+      "effiency": "Exploração de vulnerabilidades ponta a ponta: 48,5% no ExploitGym e 81 vulnerabilidades inéditas de alta severidade encontradas no Firefox (números do fabricante).",
+      "community_benchmark": "Não há leaderboard independente nem avaliação pública da comunidade (não confirmado). Classificado como 'Critical' em cibersegurança no Preparedness Framework da OpenAI; Mozilla, Palo Alto Networks, Cisco e CodeRabbit são citados como usuários.",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-6-cyber",
+        "https://developers.openai.com/api/docs/changelog",
+        "https://www.testingcatalog.com/openai-launches-gpt-6-cyber-for-daybreak-red-customers/"
+      ]
+    },
+    {
+      "brand": "OpenAI",
+      "model": "gpt-6-rosalind",
+      "description": "GPT-Rosalind (variante GPT-6, 30/10/2026) é o modelo de raciocínio biológico da OpenAI com uso de ferramentas científicas para pesquisa em ciências da vida; acesso restrito a organizações aprovadas. US$ 15 / US$ 75 por 1M; contexto não confirmado.",
+      "when_use": "Descoberta de fármacos, biologia translacional e análise de dados biológicos com ferramentas, em organizações aprovadas. Não serve para uso geral.",
+      "effiency": "Especialização em biologia e química com uso de ferramentas científicas.",
+      "community_benchmark": "Não confirmado: não há leaderboard público nem relatos de usuários sobre esta versão.",
+      "sources": [
+        "https://developers.openai.com/api/docs/changelog",
+        "https://developers.openai.com/api/docs/pricing",
+        "https://aiweekly.co/alerts/openai-ships-gpt-rosalind-6-biology-model-to-trusted-users"
+      ]
+    },
+    {
+      "brand": "OpenAI",
+      "model": "gpt-oss-120b",
+      "description": "gpt-oss-120b (05/08/2025) segue como o modelo open-weight mais recente da OpenAI: MoE de 117B parâmetros (5,1B ativos) sob Apache 2.0, contexto de 131K, cabe em uma GPU de 80GB. Sem preço de API oficial; no OpenRouter sai por ~US$ 0,03 / US$ 0,075 por 1M.",
+      "when_use": "Implantação local, on-prem ou air-gapped, soberania de dados, fine-tuning próprio e inferência ultrarrápida (Cerebras/Groq) em tarefas simples. Não use quando precisar de capacidade de fronteira, conhecimento recente (cutoff de 2024) ou contexto acima de 128K; os open-weight chineses atuais são bem superiores.",
+      "effiency": "Raciocínio por GB de VRAM com licença permissiva e throughput altíssimo (765 tokens/s na Cerebras).",
+      "community_benchmark": "Só 4 na Artificial Analysis, muito abaixo de Kimi K3.1 Pro (46) e DeepSeek V4.1 Flash (33), e fora do top 10 do OpenRouter, mas ainda com ~2,4M downloads mensais no Hugging Face. A comunidade o usa em edge, VRAM limitada e cenários air-gapped; as críticas são 'otimizado para benchmark' e conhecimento desatualizado.",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-oss-120b",
+        "https://openai.com/index/introducing-gpt-oss/",
+        "https://huggingface.co/openai/gpt-oss-120b",
+        "https://artificialanalysis.ai/leaderboards/models"
+      ]
+    },
+    {
+      "brand": "OpenAI",
+      "model": "gpt-oss-20b",
+      "description": "gpt-oss-20b (05/08/2025) é o open-weight menor da OpenAI: 21B parâmetros (3,6B ativos), Apache 2.0, contexto de 131K, feito para baixa latência.",
+      "when_use": "Rodar localmente em hardware de consumidor ou edge, protótipos offline e tarefas especializadas com fine-tuning. Não use em raciocínio complexo, coding agêntico sério ou tarefas que exijam conhecimento recente.",
+      "effiency": "Latência e custo mínimos rodando em máquina própria (430 tokens/s na Groq).",
+      "community_benchmark": "Sem nota no índice v5 da Artificial Analysis e fora do top 10 do OpenRouter; uso atual concentrado em cenários locais e de nicho. Posição no LMArena não confirmada.",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-oss-20b",
+        "https://openai.com/index/introducing-gpt-oss/",
+        "https://artificialanalysis.ai/leaderboards/models"
+      ]
+    },
+    {
+      "brand": "Google",
+      "model": "gemini-4-carbon",
+      "description": "Gemini 4 Carbon (GA em 10/11/2026) é o modelo de raciocínio mais forte da Google, topo da família Gemini 4, para engenharia de software complexa, matemática, ciência e agentes de longa duração. Contexto de ~1M, saída padrão de 65K (até ~1M com long decode) e entrada multimodal. US$ 2 / US$ 10 por 1M até 30/11/2026 (promoção) e US$ 4 / US$ 20 a partir de 01/12/2026.",
+      "when_use": "Problemas mais difíceis: código e debugging multi-etapa longos, pesquisa científica aberta, finanças e jurídico profundos, ciberdefesa (variante cyber com allowlist) e orquestrador em sistemas multiagente, com o Hydrogen executando. Não use para chat interativo ou baixa latência (~72 s até o primeiro token em High), para tarefas rotineiras (a Google indica Argon ou Hydrogen) nem com cota curta, porque gasta mais tokens explorando e verificando.",
+      "effiency": "Inteligência de topo por custo relativamente baixo: 60 na Artificial Analysis a US$ 5,48 por tarefa, contra US$ 26,54 do Claude Fable 5.2 e US$ 10,04 do Opus 5.5; segundo o The Batch, usa 29% menos tokens de saída que o Opus 5.5.",
+      "community_benchmark": "#1 no LMArena Text (1526, preliminar), #4 no WebDev (1768), #2 na Artificial Analysis (60, atrás do Fable 5.2), #2 no Terminal-Bench 4.0 (65,2%) e #2 no Vals Index. No HN elogiam análises que acham pontos que outros modelos perderam e o consideram muito superior ao Argon; as queixas são lentidão, consumo pesado da cota nos planos Pro/Ultra, rollout confuso e que 'mais barato na tabela não significa mais barato no uso'.",
+      "sources": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+        "https://aistudio.google.com/docs/models/gemini-4-carbon",
+        "https://aistudio.google.com/docs/pricing",
+        "https://artificialanalysis.ai/models/gemini-4-carbon",
+        "https://arena.ai/leaderboard/text",
+        "https://www.deeplearning.ai/the-batch/gemini-leads-the-pack-again/",
+        "https://news.ycombinator.com/item?id=50442303"
+      ]
+    },
+    {
+      "brand": "Google",
+      "model": "gemini-4-argon",
+      "description": "Gemini 4 Argon (GA na API em 13/10/2026) é o modelo de raciocínio de fronteira eficiente da família Gemini 4: inteligência de Gemini 4 com respostas mais rápidas e menos tokens por turno que o Carbon. Contexto de ~1M, saída de 65K (até 1M com long decode) e entrada multimodal. US$ 2 / US$ 10 por 1M até 30/11/2026 e US$ 4 / US$ 20 depois.",
+      "when_use": "Indicado pela Google para a maior parte do trabalho de engenharia de software e conhecimento: refatorações no repositório inteiro, migrações, projetos novos, análise de vídeo longo, agentes de finanças e jurídico e protótipos rápidos e baratos. Não use em fluxos autônomos pesados de terminal (57% no Terminal-Bench 4, contra 60-66% dos Claude) nem para builds polidos de produção. Hoje o Hydrogen é mais barato e rápido no dia a dia, e o Carbon é melhor nos problemas difíceis pelo mesmo preço.",
+      "effiency": "Engenharia de software de longo horizonte a custo moderado: 77,9% no DeepSWE v1.1 segundo a Google (Opus 5.5: 74,2%) e, no teste da MindStudio, um jogo 3D em ~5 min por US$ 0,43, contra ~20 min e ~US$ 3 do Opus 5.5.",
+      "community_benchmark": "#2 no LMArena Text (1522, ranking estável com 20 mil votos) e #13 no WebDev; 50 na Artificial Analysis, já superado por Hydrogen e Carbon. No HN elogiam a escrita clara e direta (melhor que a do Opus 5.5, segundo alguns) e o debugging; as críticas são loops de raciocínio infinitos, acusações de benchmark-maxxing no fórum oficial, distração com specs antigas em codebases grandes e gasto excessivo de tokens em tarefas simples.",
+      "sources": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+        "https://aistudio.google.com/docs/models/gemini-4-argon",
+        "https://artificialanalysis.ai/models/gemini-4-argon",
+        "https://arena.ai/leaderboard/text",
+        "https://news.ycombinator.com/item?id=50073879",
+        "https://www.mindstudio.ai/blog/gemini-4-argon-vs-opus-5-5"
+      ]
+    },
+    {
+      "brand": "Google",
+      "model": "gemini-4-hydrogen",
+      "description": "Gemini 4 Hydrogen (GA em 12/11/2026) é o modelo rápido e eficiente da família Gemini 4, chamado pela Google de 'daily driver para fluxos agênticos'. Contexto de ~1M, thinking de low a xhigh, computer use, grounding em Search/Maps e execução de código. US$ 1,50 / US$ 7,50 por 1M, com tier gratuito no AI Studio.",
+      "when_use": "Código do dia a dia, agentes de alta frequência, subagentes executores ou verificadores sob um orquestrador (Carbon + Hydrogen chegam perto do Carbon sozinho com ~24% menos cota), apps one-shot, consultas factuais e workflows de dados e SQL. Não use em tarefas pesadas de terminal (54% no Terminal-Bench 4.0, contra 64% do Sonnet 5.5), no raciocínio mais difícil (Carbon ou Argon) nem em volume muito alto e simples (o 3.5 Flash-Lite é ~5x mais barato); evite o xhigh se o custo pesa.",
+      "effiency": "Melhor relação velocidade/inteligência da linha: 169-174 tokens/s com nota 54 (xhigh) na Artificial Analysis, acima do Argon, a US$ 1,87-3,16 por tarefa.",
+      "community_benchmark": "54 na Artificial Analysis (#7), quase empatado com o Claude Sonnet 5.5 (55) a ~1/3 do custo por tarefa; #10 no LMArena WebDev e #15 no Text (preliminar); inventa respostas em só ~8% dos casos no AA-Omniscience. Na Bito fez 77,6% no benchmark de código (Sonnet 5.5: 72,3%; Opus 5.5, ~9 pontos acima) em 1/3 do tempo do Opus. No HN criticam o preço igual ao do 3.8 Flash fora da promoção; há desconfiança de 'benchmaxx' e relatos de outputs one-shot com glitches.",
+      "sources": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+        "https://aistudio.google.com/docs/models/gemini-4-hydrogen",
+        "https://artificialanalysis.ai/models/gemini-4-hydrogen",
+        "https://the-decoder.com/googles-gemini-4-hydrogen-outscores-the-bigger-argon-just-four-weeks-after-its-launch/",
+        "https://bito.ai/blog/gemini-4-hydrogen-vs-claude-opus-sonnet-haiku-sol/",
+        "https://news.ycombinator.com/item?id=50471431"
+      ]
+    },
+    {
+      "brand": "Google",
+      "model": "gemini-3.8-flash",
+      "description": "Gemini 3.8 Flash (GA em 02/09/2026) é o Flash mais inteligente da geração 3.x, feito para engenharia de software de longo horizonte, agentes e workflows corporativos com velocidade e custo de Flash. Entrada de ~1M e saída de 65K. US$ 0,75 / US$ 3,75 por 1M até 31/12/2026 e US$ 1,50 / US$ 7,50 a partir de 2027; substitui o Gemini 2.5 Pro em 01/12/2026.",
+      "when_use": "Assistente geral do dia a dia, frontend (com o Chrome DevTools MCP), troubleshooting rápido e classificação; destino natural de quem sai do 2.5 Pro. Não use quando a precisão factual é crítica (relatos de alucinação alta) nem para agentes de terminal (18,2% no Terminal-Bench 4.1); para projetos novos a Google recomenda o Hydrogen, mais barato por tarefa.",
+      "effiency": "Preferência humana por preço: #9 no LMArena Text (1497, 62 mil votos), acima de vários Claude Opus, cobrando US$ 0,75 / US$ 3,75 por 1M.",
+      "community_benchmark": "31 na Artificial Analysis, mas verboso e caro por tarefa (US$ 7,77); #43 no LMArena WebDev. No HN uns o chamam de 'daily driver' e 'shockingly good' em frontend; outros dizem que é o que mais alucina entre os grandes e que foi 'tunado para velocidade, não para precisão'. Há relatos de loops lendo arquivos e ~30% mais tokens por tarefa que o 3.7 Flash.",
+      "sources": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+        "https://aistudio.google.com/docs/models/gemini-3.8-flash",
+        "https://artificialanalysis.ai/models/gemini-3-8-flash",
+        "https://arena.ai/leaderboard/text",
+        "https://news.ycombinator.com/item?id=49913571"
+      ]
+    },
+    {
+      "brand": "Google",
+      "model": "gemini-3.5-flash-lite",
+      "description": "Gemini 3.5 Flash-Lite (GA em 21/07/2026) é o tier atual de menor custo e latência do Gemini, otimizado para alto throughput, subagentes e leitura de documentos. Entrada de ~1M, saída de 65K, thinking configurável e computer use. US$ 0,30 / US$ 2,50 por 1M (batch e flex com 50% de desconto); substitui o 2.5 Flash em 01/12/2026.",
+      "when_use": "Alto volume: triagem de tickets, extração de campos de PDFs, tradução, primeira passada de busca agêntica, subagentes simples e jobs em batch. Não use em raciocínio de várias etapas ou código sério (só 12 na Artificial Analysis) nem em chat sensível ao primeiro token (~5-11 s, porque pensa antes de responder); para decisões fechadas, o Gemini Decision 1 sai ~5x mais barato.",
+      "effiency": "Throughput: ~456-490 tokens/s medidos (#2 de 152 em velocidade na Artificial Analysis), com metade do tempo por tarefa do 3.1 Flash-Lite.",
+      "community_benchmark": "12 na Artificial Analysis v5 (US$ 0,69 por tarefa), #76 no LMArena Text e #96 no WebDev; os números da Google incluem 54,2% no SWE-Bench Pro e 74,0% no OSWorld-Verified. Há pouco feedback direto de usuários; as críticas são o aumento de preço da linha 3.5 e o primeiro token lento para a categoria. Fora do top 10 do OpenRouter.",
+      "sources": [
+        "https://aistudio.google.com/docs/models/gemini-3.5-flash-lite",
+        "https://aistudio.google.com/docs/pricing",
+        "https://artificialanalysis.ai/articles/gemini-3-6-flash-3-5-flash-lite-halving-time",
+        "https://www.eesel.ai/blog/gemini-3-5-flash-lite"
+      ]
+    },
+    {
+      "brand": "Google",
+      "model": "gemini-decision-1",
+      "description": "Gemini Decision 1 (11/11/2026) é um modelo multimodal especializado da Decisions API. Não gera texto: avalia até 1.000 perguntas fechadas (sim/não, múltipla escolha, nota por rubrica) numa única passada e devolve probabilidades calibradas. Até 262K tokens de entrada e saída zero; US$ 0,10 por 1M de entrada, com saída grátis (v1beta).",
+      "when_use": "Roteamento de modelos e requisições, escolha de ferramentas, checagem de muitas políticas de uma vez, avaliação por rubrica e moderação ou classificação de baixa latência em mídia ao vivo. Não use para nada que precise de texto gerado, function calling, structured output ou raciocínio aberto; não tem Batch API nem cache.",
+      "effiency": "Latência e custo em decisões fechadas: 150-250 ms de ponta a ponta, quase constante de 1 a 100 perguntas, e ~5x mais barato que o 3.5 Flash-Lite segundo a Google.",
+      "community_benchmark": "Não aparece no LMArena nem na Artificial Analysis; os benchmarks existem só em gráficos da Google, sem verificação de terceiros. Uma análise externa aponta preço ~2,4x o do Microsoft-Decision-1. Opinião da comunidade não confirmada (o modelo tem 4 dias).",
+      "sources": [
+        "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+        "https://aistudio.google.com/docs/models/gemini-decision-1",
+        "https://fourweekmba.com/ai-google-launches-gemini-decision-1-at-2-4x-microsofts-price/"
+      ]
+    },
+    {
+      "brand": "Google",
+      "model": "gemma-4-31b-it",
+      "description": "Gemma 4 31B (02/04/2026) é o maior modelo aberto atual da Google, sob Apache 2.0: denso, 30,7B parâmetros, contexto de 256K, texto, imagem e vídeo, thinking e function calling nativos e 140+ idiomas. Pesos gratuitos; cabe numa H100 em bf16 ou em GPU de consumidor quantizado. No Gemini API, só no tier gratuito.",
+      "when_use": "Self-hosting com dados sensíveis, fine-tuning, agentes locais que precisam de tool calling e JSON rigorosos, RAG em documentos longos e OCR/visão. Não use quando precisa de qualidade de fronteira (4 na Artificial Analysis) nem para código pesado local (o Qwen 3.8 27B fez 12/12 contra 6/12 num teste); em GPU de 24GB com contexto grande, prefira o 26B A4B.",
+      "effiency": "Inteligência por parâmetro e confiabilidade em tool calling: MMLU Pro 85,2%, GPQA 84,3%, LiveCodeBench v6 80,0% e 90/90 chamadas simples corretas num teste independente.",
+      "community_benchmark": "Hoje está em #79 no LMArena Text (1452), mas tem 6,44M downloads no Hugging Face. No HN (1812 pontos) elogiam o raciocínio, 'bem acima de qualquer Qwen'; as críticas são lentidão quando não cabe na VRAM, bugs de chat template no lançamento, acusações de 'benchmaxxing' e o Qwen ser melhor em código.",
+      "sources": [
+        "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/",
+        "https://ai.google.dev/gemma/docs/core/model_card_4",
+        "https://huggingface.co/collections/google/gemma-4",
+        "https://news.ycombinator.com/item?id=47616361",
+        "https://www.betterclaw.io/blog/gemma-4-27b-vs-qwen-3-6-27b"
+      ]
+    },
+    {
+      "brand": "Google",
+      "model": "gemma-4-26b-a4b-it",
+      "description": "Gemma 4 26B A4B (02/04/2026) é o MoE aberto da Google com 25,2B parâmetros totais e 3,8B ativos, contexto de 256K, texto, imagem e vídeo, sob Apache 2.0. Pesos gratuitos e uso gratuito no Gemini API.",
+      "when_use": "Inferência local rápida em GPU de 24GB, Mac ou até só CPU: assistentes locais, visão, SVG e trabalho criativo, e subagente local barato. Não use em agentes que dependem de seguir regras do prompt e ordem de ferramentas à risca (há relatos de que as ignora) nem onde o 31B é bem superior (código competitivo, tool use, contexto longo).",
+      "effiency": "Velocidade por qualidade: ~120-150 tokens/s numa RTX 4090 em Q4, mantendo MMLU Pro 82,6 e GPQA 82,3.",
+      "community_benchmark": "#102 no LMArena Text, sem nota na Artificial Analysis v5 e 5,14M downloads no Hugging Face. Simon Willison elogiou o melhor SVG que já viu de um modelo do porte de laptop; as críticas são não respeitar regras do prompt em agentes customizados e o controle de thinking confuso.",
+      "sources": [
+        "https://ai.google.dev/gemma/docs/core/model_card_4",
+        "https://huggingface.co/collections/google/gemma-4",
+        "https://news.ycombinator.com/item?id=47616361"
+      ]
+    },
+    {
+      "brand": "Google",
+      "model": "google/gemma-4-12B-it",
+      "description": "Gemma 4 12B Unified (03/06/2026) é o modelo médio denso da Google (11,95B), sem encoders separados, que aceita texto, imagem, áudio e vídeo com contexto de 256K. Feito para laptops de 16GB; Apache 2.0.",
+      "when_use": "Agentes multimodais locais em laptop, inclusive com áudio nativo, fala, tradução e visão local. Não use para código sério (usuários relatam erros de sintaxe em Q4) nem para instruções cheias de nuance, onde perde para o 26B e o Qwen 3.6.",
+      "effiency": "Multimodalidade completa com áudio e qualidade perto do 26B MoE usando menos da metade da memória: MMLU Pro 77,2 e GPQA 78,8.",
+      "community_benchmark": "Sem posição no LMArena nem nota na Artificial Analysis; 1,65M downloads no Hugging Face. No HN (1062 pontos) o chamam de 'decent local coding model' e melhor que o Qwen 3.5 9B; as queixas são lentidão quando transborda a VRAM, bugs de tool use no início e dúvida se 16GB é realista (~24GB em bf16).",
+      "sources": [
+        "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/",
+        "https://ai.google.dev/gemma/docs/core/model_card_4",
+        "https://news.ycombinator.com/item?id=48385906"
+      ]
+    },
+    {
+      "brand": "Google",
+      "model": "google/gemma-4-E4B-it / google/gemma-4-E2B-it",
+      "description": "Gemma 4 E4B e E2B (02/04/2026) são os modelos de borda da Google, com 4,5B e 2,3B parâmetros efetivos, contexto de 128K e entrada de texto, imagem, áudio e vídeo; rodam offline em celular, Raspberry Pi e navegador. Apache 2.0.",
+      "when_use": "Uso on-device e offline: apps móveis, privacidade, voz local, navegador e classificação ou extração leve. Não use para raciocínio, código ou agentes complexos (τ2 de 42,2% e 24,5%) nem para gerar SVG ou visuais.",
+      "effiency": "Multimodal com áudio rodando no celular ou no navegador (o E2B já foi demonstrado no browser com 3,1GB).",
+      "community_benchmark": "Sem posição no LMArena nem na Artificial Analysis; 4,28M (E4B) e 2,9M (E2B) downloads no Hugging Face. No HN, um usuário diz que o E4B em 8GB de VRAM pode substituir o Claude.ai em algumas tarefas, e a Unsloth os chamou de 'shockingly good'; as críticas são ficar atrás dos modelos pequenos do Qwen e gerar SVGs ruins.",
+      "sources": [
+        "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/",
+        "https://ai.google.dev/gemma/docs/core/model_card_4",
+        "https://huggingface.co/collections/google/gemma-4"
+      ]
+    },
+    {
+      "brand": "xAI",
+      "model": "grok-4.7",
+      "description": "Grok 4.7 (21/09/2026) é o modelo frontier mais capaz da xAI, focado em código, agentes e trabalho de escritório; texto e imagem de entrada, raciocínio em 4 níveis e contexto de 500K. US$ 2 / US$ 6 por 1M (o dobro acima de 200K de prompt).",
+      "when_use": "Sessões agênticas longas de código (Cursor, Grok Build), revisão de código como segundo par de olhos, front-end, trabalho jurídico e de engenharia e fluxos com muitas chamadas de ferramenta em paralelo. Não use quando custo por tarefa ou latência importam (gasta muitos tokens), para textos longos bem escritos ou quando os dados precisam ficar na UE (API só nos EUA).",
+      "effiency": "Código agêntico de longa duração: 71,0% no DeepSWE v1.1 e 46,3% no CursorBench 4.0 (números do fabricante), e 1º no Harvey Legal Agent.",
+      "community_benchmark": "35 na Artificial Analysis (posição 45 de 80, abaixo da mediana) e muito verboso (US$ 7,77 por tarefa); #92 no LMArena Text, abaixo do Grok 4.6. No HN elogiam que acha bugs que Fable e Astra deixam passar, é ótimo em ferramentas paralelas e front-end e recusa pouco; criticam a queima de tokens (centenas de tool calls onde o Opus usaria 5-10), a lentidão e que não chega ao nível de Sol/Opus.",
+      "sources": [
+        "https://docs.x.ai/docs/models/grok-4.7",
+        "https://x.ai/news/grok-4-7",
+        "https://artificialanalysis.ai/models/grok-4-7",
+        "https://arena.ai/leaderboard/text",
+        "https://news.ycombinator.com/item?id=49788838"
+      ]
+    },
+    {
+      "brand": "xAI",
+      "model": "grok-4.3",
+      "description": "Grok 4.3 (30/04/2026) é o tier econômico do catálogo atual da xAI: rápido, bom em tool use e em seguir instruções, com contexto de 1M e entrada de texto e imagem. US$ 1,25 / US$ 2,50 por 1M.",
+      "when_use": "Alto volume com tool calling, extração, RAG e documentos longos de até 1M tokens, agentes de atendimento e análise jurídica e financeira de baixo custo. Não use em código agêntico pesado, matemática difícil, cenários onde alucinação é crítica nem em agentes autônomos de longa duração.",
+      "effiency": "Custo por inteligência: no lançamento ficou na fronteira de Pareto custo×desempenho, rodando o índice da Artificial Analysis por ~1/10 do custo do GPT-5.5.",
+      "community_benchmark": "A Artificial Analysis já o marca como 'deprecated' (sugere o Grok 4.6) e não lhe dá nota no índice v5; #96 no LMArena Text. Ficou em 1º em CaseLaw e CorpFin na Vals. Revisores elogiam preço e tool calling e criticam a taxa de alucinação; há pouca discussão de comunidade.",
+      "sources": [
+        "https://docs.x.ai/docs/models/grok-4.3",
+        "https://artificialanalysis.ai/models/grok-4-3",
+        "https://venturebeat.com/technology/xai-launches-grok-4-3-at-an-aggressively-low-price-and-a-new-fast-powerful-voice-cloning-suite"
+      ]
+    },
+    {
+      "brand": "xAI",
+      "model": "grok-build-0.1",
+      "description": "Grok Build 0.1 (29/05/2026, beta pública) é o modelo de código agêntico da xAI, o mesmo do Grok Build CLI, que substitui o Grok Code Fast 1 (os aliases antigos apontam para ele). Contexto de 256K, US$ 1 / US$ 2 por 1M.",
+      "when_use": "Loops de agente de código baratos e rápidos (Cursor, Kilo Code, OpenCode), web dev, debug, MCP e automações recorrentes. Não use em tarefas difíceis que exigem cobrir edge cases (perde para Opus e GPT) nem quando precisar do teto de qualidade (Grok 4.7).",
+      "effiency": "Preço por token: é o modelo de código mais barato da xAI, com mais de 100 tokens/s declarados.",
+      "community_benchmark": "A xAI não publicou benchmarks. No ranking da Kilo fez 50,6% no Terminal Bench 2.0 e ficou em 8º de 50 no PinchBench, mas com execuções longas. Revisores dizem que é o mais rápido em tarefas isoladas, mas perde edge cases que o Opus pega; não aparece no ranking de uso do OpenRouter. Em julho/2026 o CLI chegou a enviar repositórios inteiros, inclusive chaves, mesmo com opt-out (corrigido no mesmo dia).",
+      "sources": [
+        "https://docs.x.ai/docs/models/grok-build-0.1",
+        "https://x.ai/news/grok-build-0-1",
+        "https://kilo.ai/models/x-ai-grok-build-0-1",
+        "https://openrouter.ai/x-ai/grok-build-0.1"
+      ]
+    },
+    {
+      "brand": "Meta",
+      "model": "muse-wonder-1.0",
+      "description": "Muse Wonder (12/10/2026) é o modelo frontier fechado da Meta Superintelligence Labs e o mais capaz da Meta acessível via API (em preview). Recebe texto, imagem, vídeo, áudio e PDF, com contexto de ~1M; US$ 4 / US$ 20 por 1M.",
+      "when_use": "Loop principal de agentes de longo prazo (planejamento, subagentes, ferramentas em paralelo), mudanças em muitos arquivos com verificação, computer use e tarefas jurídicas e financeiras, delegando subtarefas ao Muse Ember. Não use com orçamento apertado (mesmo preço do Opus 5.5), para UI/HTML que exige bom gosto, nem se precisar de pesos abertos.",
+      "effiency": "Agentes e código de longo prazo: 78,8 no DeepSWE 1.1 e 53,1 no SWE-Marathon, acima do Opus 5.5 segundo a Meta.",
+      "community_benchmark": "#3 no LMArena Text (1511), a melhor posição da Meta, mas só 44 na Artificial Analysis (#35 de 80, US$ 6,95 por tarefa). No HN reclamam que os benchmarks do marketing são do Wonder Full, que fica bem atrás do Opus 5.5 em image-to-HTML, que falta 'taste e judgment', que entra em loop em ciclos simples de revisão e que é caro.",
+      "sources": [
+        "https://dev.meta.ai/docs/muse-wonder",
+        "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+        "https://artificialanalysis.ai/models/muse-wonder",
+        "https://arena.ai/leaderboard/text",
+        "https://news.ycombinator.com/item?id=50059115"
+      ]
+    },
+    {
+      "brand": "Meta",
+      "model": "muse-wonder-full (sem API; exclusivo do Muse Code)",
+      "description": "Muse Wonder Full (12/10/2026) é a versão de maior capacidade do Wonder, fechada e disponível só para assinantes do Muse Code (planos de US$ 50 e US$ 200/mês, com cota); não há preço por token.",
+      "when_use": "Desenvolvedores individuais usando o CLI Muse Code em projetos longos de código e trabalho agêntico. Não serve para produção ou integração (não há API) nem para código confidencial na configuração padrão, que usa os dados para treino.",
+      "effiency": "É o modelo mais capaz da Meta: 50 na Artificial Analysis e, segundo a Meta, 79,0 no DeepSWE 1.1 e 57,5 no SWE-Marathon.",
+      "community_benchmark": "50 na Artificial Analysis; pela própria tabela da Meta fica atrás do Opus 5.5 e do GPT-6 Astra no Terminal-Bench 4.0; não aparece no LMArena. A comunidade critica a confusão de nomes e benchmarks entre Wonder e Wonder Full e o acesso limitado; há poucos relatos práticos.",
+      "sources": [
+        "https://dev.meta.ai/docs/models",
+        "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+        "https://venturebeat.com/technology/metas-new-muse-wonder-and-muse-wonder-full-models-achieve-frontier-performance-but-only-the-weaker-one-is-available-via-api"
+      ]
+    },
+    {
+      "brand": "Meta",
+      "model": "muse-spark-1.3",
+      "description": "Muse Spark 1.3 (02/09/2026) é o modelo intermediário fechado da Meta, multimodal (texto, imagem, vídeo, áudio, PDF), com contexto de ~1M. US$ 1,25 / US$ 4,25 por 1M; no Contributor mode cai para US$ 0,10 / US$ 0,20, mas os dados vão para treino.",
+      "when_use": "Assistentes de código e agentes com muitos passos onde o custo pesa, perguntas que exigem conhecimento amplo sem RAG e multimodalidade com vídeo e áudio. Não use em tarefas longas e complexas onde capacidade vale mais que custo (Wonder) nem com dados confidenciais no Contributor mode.",
+      "effiency": "Custo-benefício: preço baixo, 216 tokens/s e, segundo a Meta, 20% menos tool calls e 25% menos tokens que a versão anterior.",
+      "community_benchmark": "#10 no LMArena Text (1497), mas só 37 na Artificial Analysis, que já o marca como 'deprecated' em favor do Wonder. Testes mostram que xhigh/max às vezes gasta todo o orçamento em raciocínio sem entregar resposta. No HN, um usuário diz que o modo Contributor 'bate tudo em custo-benefício'.",
+      "sources": [
+        "https://dev.meta.ai/docs/muse-spark",
+        "https://research.meta.ai/blog/introducing-muse-spark-1-3",
+        "https://artificialanalysis.ai/models/muse-spark-1-3",
+        "https://kingy.ai/blog/muse-spark-1-3-review-benchmarks-pricing-verdict/"
+      ]
+    },
+    {
+      "brand": "Meta",
+      "model": "muse-ember-1.0",
+      "description": "Muse Ember (09/11/2026) é o modelo menor e mais eficiente da Meta, fechado, para trabalho agêntico de alto volume. Multimodal, contexto de 1M e até 512K de saída; US$ 0,10 / US$ 0,50 por 1M (triplica acima de 200K).",
+      "when_use": "Subagente ou executor junto com o Muse Wonder (tool calls, roteamento, extração, parsing de documentos longos, rodar testes), perguntas de código one-shot e computer use a partir de screenshots. Não use em sessões agênticas longas (muitas afirmações enganosas), classificação curta e simples ou quando precisar de latência mínima (o raciocínio não desliga).",
+      "effiency": "Custo e velocidade: 36 na Artificial Analysis, igual ao Claude Haiku 5.5, por ~US$ 0,14 por tarefa contra US$ 0,41 do Haiku, e 425 tokens/s.",
+      "community_benchmark": "36 na Artificial Analysis (2º na categoria) e #5 em 'New & Trending' no OpenRouter. Na Bito fez 76,3% em one-shot, mas só 50,4% em sessões de 20 turnos (o Haiku fez 70,9% no geral); num teste independente empatou em acurácia com Haiku e Luna, mas foi o mais lento e caro. Saiu há poucos dias, então há poucos relatos.",
+      "sources": [
+        "https://research.meta.ai/blog/muse-ember",
+        "https://dev.meta.ai/docs/pricing-rate-limits",
+        "https://artificialanalysis.ai/models/muse-ember",
+        "https://bito.ai/blog/muse-ember-vs-claude-haiku-sonnet-opus-gpt-6-1-sol/",
+        "https://flaviocopes.com/small-ai-models/"
+      ]
+    },
+    {
+      "brand": "Meta",
+      "model": "meta-models/Muse-Spark-Open-816B-A42B",
+      "description": "Muse Spark Open (15/10/2026) é o modelo de pesos abertos da Meta: MoE de 816B totais e 42B ativos, mesma base do Spark 1.3, multimodal com contexto de 1M. Licença Muse Model License (não-OSI, com restrições para hosts grandes); nos provedores, ~US$ 1,25 / US$ 4,25 por 1M.",
+      "when_use": "Self-hosting com soberania de dados, fine-tuning e RL, agentes com tool calling e MCP, multimodalidade com áudio e vídeo, dados sintéticos e LLM-as-judge. Não use sem hardware à altura (700GB+ de VRAM em NVFP4), para segurança ofensiva ou quando precisa do melhor modelo aberto em código (GLM 5.3 e Kimi ficam à frente).",
+      "effiency": "Tool use e MCP: 89,2 no MCP-Atlas, 1º da tabela, à frente de Kimi K3 e GLM 5.3 (números do fabricante).",
+      "community_benchmark": "25 na Artificial Analysis (#14 de 29 abertos). No r/LocalLLaMA e no HN foi recebido como 'o modelo aberto americano mais forte'; as críticas são a licença restritiva, o tamanho (~506GB no Q4), o excesso de safety para cibersegurança e o código mais fraco que GLM e Kimi.",
+      "sources": [
+        "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B",
+        "https://pytorch.org/blog/muse-spark-open/",
+        "https://artificialanalysis.ai/models/muse-spark-open"
+      ]
+    },
+    {
+      "brand": "Meta",
+      "model": "meta-models/Muse-Glimmer-30B",
+      "description": "Muse Glimmer 30B (10/08/2026) é o modelo aberto denso de ~30B da Meta, sob Apache 2.0, destilado do Muse Spark para rodar no dispositivo; texto e imagem, contexto de 131K. Roda com ~24-32GB de VRAM em 4-bit; nos provedores sai por ~US$ 0,32 / US$ 1,35 por 1M.",
+      "when_use": "Agentes locais e privados com tool calling, MCP e function calling, análise de screenshots e documentos em GPU de consumidor ou Mac, e cenários offline. Não use em coding agêntico de terminal (o Qwen 27B vence), tarefas factuais sensíveis a alucinação, contexto acima de 131K ou áudio.",
+      "effiency": "Tool use local com pouca memória: 75,5 no MCP Atlas contra 62,5 do Qwen3.6 27B, e até ~233 tokens/s numa RTX 5090.",
+      "community_benchmark": "6 na Artificial Analysis v5 (mediana da categoria: 8) e #126 no LMArena Text. No HN gostam do tom, do raciocínio enxuto e do tool calling, rodando até em Mac Mini de 32GB; a avaliação geral é que mal supera o Qwen3.6 27B fora de tool calling e deve ser superado pelo Qwen3.8 27B.",
+      "sources": [
+        "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+        "https://artificialanalysis.ai/models/muse-glimmer",
+        "https://news.ycombinator.com/item?id=49241679"
+      ]
+    },
+    {
+      "brand": "DeepSeek",
+      "model": "deepseek-flash (DeepSeek-V4.1-Flash-1017)",
+      "description": "DeepSeek V4.1 Flash 1017 (17/10/2026) é o modelo atual da DeepSeek: MoE open-weight sob licença MIT com ~8-16B ativos por token, contexto de 1M, saída de até 384K e entrada de texto e imagem. API: US$ 0,15 / US$ 0,60 por 1M fora do pico (o dobro no pico), com cache quase de graça.",
+      "when_use": "Agentes de código e automação de alto volume (Claude Code, Codex, OpenCode), pipelines com prefixo cacheável e self-host com licença MIT. Não use quando a tarefa exige muito conhecimento de mundo ou precisão máxima em problemas difíceis, nem quando precisa de retenção zero na API oficial. O V4-Pro está em phase-out e fica abaixo do Flash.",
+      "effiency": "Melhor custo/inteligência do mercado: 2º open-weight na Artificial Analysis (33) por cerca de US$ 0,60 por tarefa, 171 tokens/s e cache quase gratuito.",
+      "community_benchmark": "É o modelo mais usado do OpenRouter (#1, com 58T tokens na semana e 193T no mês); 33 na Artificial Analysis e #18 no LMArena WebDev. No HN elogiam o custo ('~US$ 0,40 em ~3 h de desenvolvimento'), a velocidade e os pesos abertos; reclamam de verbosidade, alucinações, conhecimento de mundo fraco e variação de qualidade entre provedores.",
+      "sources": [
+        "https://api-docs.deepseek.com/quick_start/pricing",
+        "https://api-docs.deepseek.com/news/news261017",
+        "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+        "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017",
+        "https://openrouter.ai/rankings",
+        "https://news.ycombinator.com/item?id=50148452"
+      ]
+    },
+    {
+      "brand": "Alibaba (Qwen)",
+      "model": "qwen3.8-max",
+      "description": "Qwen3.8-Max (GA em 03/08/2026; snapshot 0902) é o flagship da Alibaba: MoE de 2,4T totais e 95B ativos. A API tem 1M de contexto e entrada de texto, imagem e vídeo por US$ 2 / US$ 6 por 1M; os pesos abertos (Qwen3.8-2.4T-A95B) são só texto e têm licença própria com restrições comerciais.",
+      "when_use": "Agentes longos de código e escritório, front-end/web design, agentes multimodais (documentos, computer use) e quem já está na Alibaba Cloud. Não use quando latência ou custo por tarefa importam (48 min e US$ 10 por tarefa no índice da Artificial Analysis); para volume barato, prefira Qwen3.8-Flash ou DeepSeek Flash.",
+      "effiency": "Front-end/web e agentes multimodais: #15 no LMArena WebDev e, segundo a Alibaba, 86,1 no OSWorld-Verified e 92,1 no OmniDocBench.",
+      "community_benchmark": "34 na Artificial Analysis (abaixo da mediana dos modelos de preço similar) e muito verboso; #25 no LMArena Text, empatado com Kimi e GLM. Nenhum Qwen está no top 10 do OpenRouter. Reviews elogiam o front-end; no HN criticam a licença e o fato de os pesos abertos não serem o mesmo modelo da API.",
+      "sources": [
+        "https://www.alibabacloud.com/help/en/model-studio/models",
+        "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
+        "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
+        "https://artificialanalysis.ai/models/qwen3-8-max",
+        "https://news.ycombinator.com/item?id=49150470"
+      ]
+    },
+    {
+      "brand": "Alibaba (Qwen)",
+      "model": "qwen3.8-flash (Qwen3.8-Flash-Next)",
+      "description": "Qwen3.8-Flash (ago/2026) é um MoE esparso de nova arquitetura com 125B totais e ~6B ativos, descrito pela Qwen como preview da arquitetura do Qwen4. Texto, imagem e vídeo, contexto de 262K nativo (1M na API); US$ 0,15 / US$ 0,47 por 1M; licença com restrições comerciais.",
+      "when_use": "Melhor opção Qwen para rodar local em hardware de consumo (RTX 4090/5090, Mac com 64GB+) em código e agentes, e para API barata de alto volume com visão e vídeo. Não use quando precisa de respostas rápidas (87 s até o primeiro token no índice).",
+      "effiency": "Inteligência por parâmetro ativo: com ~6B ativos faz 29 na Artificial Analysis por US$ 0,57 por tarefa, com relato de ~100 tokens/s numa RTX 4090.",
+      "community_benchmark": "29 na Artificial Analysis (#9 de 29) e #29 no LMArena WebDev. No HN dizem que é 'o primeiro modelo que pode seriamente substituir assinaturas de tier baixo' e que faz quase o mesmo que o DeepSeek V4.1 Flash na maioria das tarefas; o ponto fraco é a verbosidade.",
+      "sources": [
+        "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
+        "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+        "https://artificialanalysis.ai/models/qwen3-8-flash-next",
+        "https://news.ycombinator.com/item?id=49448210"
+      ]
+    },
+    {
+      "brand": "Alibaba (Qwen)",
+      "model": "Qwen/Qwen3.8-27B",
+      "description": "Qwen3.8-27B (ago/2026) é o modelo denso de 27B da Alibaba, open-weight sob Apache 2.0, multimodal (texto, imagem e vídeo), com thinking ligado por padrão e 262K de contexto nativo. Self-host gratuito, com ~17-19GB de VRAM em Q4.",
+      "when_use": "Modelo local de referência para quem tem uma GPU de 24-32GB: agentes de código locais, automação de infra, computer use e OCR de documentos sensíveis. Não use via API paga (o Flash custa menos e pontua mais) nem em tarefas que pedem resposta rápida sem antes baixar o reasoning effort.",
+      "effiency": "Melhor custo-benefício local denso com licença Apache 2.0: 61,7 no SWE-bench Pro e 84,3 no OSWorld-Verified cabendo numa única GPU de consumidor (números do fabricante).",
+      "community_benchmark": "20 na Artificial Analysis (xhigh) e #40 no LMArena WebDev. No HN elogiam que 'um arquivo de 17GB faz tudo isso em casa' e que aguenta sessões longas; a crítica dominante é o overthinking (5-10x mais tokens de raciocínio), e a recomendação é começar em effort low.",
+      "sources": [
+        "https://huggingface.co/Qwen/Qwen3.8-27B",
+        "https://artificialanalysis.ai/models/qwen3-8-27b",
+        "https://unsloth.ai/docs/models/qwen3.8.md",
+        "https://news.ycombinator.com/item?id=49324985"
+      ]
+    },
+    {
+      "brand": "Moonshot AI (Kimi)",
+      "model": "kimi-k3.1-pro",
+      "description": "Kimi K3.1 Pro (23/10/2026) é o flagship da Moonshot AI: MoE de 2,8T totais e 104B ativos, contexto de 1M, texto e imagem, open-weight com licença própria. US$ 2 / US$ 10 por 1M; a variante Highspeed (kimi-k3.1-pro-highspeed) é 2-3x mais rápida por US$ 4 / US$ 20.",
+      "when_use": "Quando se quer o modelo aberto mais inteligente e a qualidade pesa mais que a latência: agentes de longo horizonte, trabalho de escritório e finanças (planilhas, PDFs, decks), pesquisa com browsing, CAD/3D e front-end, ou como substituto mais barato do Opus via API. Não use em loops interativos (30 tokens/s; nesse caso use o Highspeed), para uso pesado nos planos de assinatura nem para segurança ofensiva.",
+      "effiency": "Maior teto de inteligência entre os open-weight: #1 aberto na Artificial Analysis (46, #11 geral), 13 pontos à frente do 2º.",
+      "community_benchmark": "46 na Artificial Analysis, mas lento (40 min e US$ 3,68 por tarefa); #12 no LMArena WebDev, #24 no Text e #9 em uso semanal no OpenRouter. Um teste no HN o mostrou empatando com o Sonnet 5.5 por menos da metade do custo; outros o colocam em ~4º, atrás de Opus 5.5, GPT-6 Astra e Gemini. Queixas: os limites dos planos esgotam em minutos, a verbosidade e ~2x mais tokens de saída que o K3.",
+      "sources": [
+        "https://www.kimi.ai/blog/kimi-k3-1-pro",
+        "https://platform.kimi.ai/docs/pricing/chat",
+        "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+        "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+        "https://news.ycombinator.com/item?id=50212065"
+      ]
+    },
+    {
+      "brand": "Zhipu / Z.ai (GLM)",
+      "model": "glm-5.3",
+      "description": "GLM-5.3 (18/08/2026) é o flagship da Z.ai: MoE de ~753B totais e ~40B ativos, contexto de 1M, saída de 128K, só texto, raciocínio sempre ligado. Open-weight com licença própria de uso comercial restrito; API a US$ 1,40 / US$ 4,40 por 1M ou via GLM Coding Plan (a partir de ~US$ 18/mês).",
+      "when_use": "Coding agêntico de longo horizonte em Claude Code e terminal (compatível com o protocolo da Anthropic), pesquisa de segurança, análise de vulnerabilidades e red team, onde recusa menos que modelos ocidentais. Não use quando o custo por tarefa importa (US$ 5 por tarefa no índice) nem para entrada multimodal (use o GLM-5.3-Flash).",
+      "effiency": "Cibersegurança e agentes de terminal: 84,5 no CyberGym e 88,2 no Terminal-Bench 2.1 (números do fabricante); apontado como o open-weight mais capaz em cyber já lançado.",
+      "community_benchmark": "32 na Artificial Analysis (#3 open-weight), #28 no LMArena Text e #10 do mês no OpenRouter. No HN dizem que está 'só um fio atrás de Sol e Fable' e que é o primeiro modelo que se encaixa no Claude Code sem problemas; as queixas são a queima de cota do Coding Plan, o reajuste de preço e a lentidão por fazer muitos turnos.",
+      "sources": [
+        "https://docs.z.ai/guides/llm/glm-5.3",
+        "https://docs.z.ai/guides/overview/pricing",
+        "https://huggingface.co/zai-org/GLM-5.3",
+        "https://artificialanalysis.ai/models/glm-5-3",
+        "https://news.ycombinator.com/item?id=49294997"
+      ]
+    },
+    {
+      "brand": "Zhipu / Z.ai (GLM)",
+      "model": "glm-5.3-flash",
+      "description": "GLM-5.3-Flash (26/08/2026) é o modelo econômico da Z.ai: MoE de 320B totais e 18B ativos, nativamente multimodal, contexto de 1M e licença MIT. US$ 0,15 / US$ 0,50 por 1M.",
+      "when_use": "Executor barato em agentes de código (outro modelo planeja e o Flash implementa), correções pequenas, alto volume com imagens e self-host com licença MIT. Não use em tarefas ambíguas sem um plano detalhado (tende a over-engineering) nem quando velocidade importa.",
+      "effiency": "Preço/qualidade com licença MIT: 28 na Artificial Analysis por US$ 0,58 por tarefa, com relato de paridade com o GLM-5.3 em Python por ~1/10 do custo.",
+      "community_benchmark": "#4 da semana e #3 do mês no OpenRouter (56,9T tokens), 28 na Artificial Analysis e #36 no LMArena. No HN o chamam de 'excelente workhorse', próximo do Opus 4.5 em conversa, mas menos consistente; as queixas são lentidão e over-engineering, e o effort medium foi apontado como o melhor custo por acerto.",
+      "sources": [
+        "https://docs.z.ai/release-notes/new-released",
+        "https://huggingface.co/zai-org/GLM-5.3-Flash",
+        "https://artificialanalysis.ai/models/glm-5-3-flash",
+        "https://openrouter.ai/rankings",
+        "https://news.ycombinator.com/item?id=49934620"
+      ]
+    },
+    {
+      "brand": "MiniMax",
+      "model": "MiniMax-M3.1-Flash",
+      "description": "MiniMax M3.1 Flash (19/10/2026) é o modelo atual da MiniMax: MoE nativamente multimodal (~428B totais, 23B ativos), contexto de até 1M e raciocínio sempre ligado; pesos abertos sob MiniMax Community License. US$ 0,15 / US$ 0,60 por 1M.",
+      "when_use": "Automação agêntica com ferramentas de escritório e finanças, agentes de contexto longo e computer use barato, sobretudo para quem já usa o MiniMax Code. Não use como agente de código principal nem para segurança: usuários o colocam abaixo de GLM-5.3, DeepSeek V4.1 Flash e Qwen3.8-Flash no uso real.",
+      "effiency": "Velocidade e custo em automação: 147 tokens/s e o menor custo por tarefa entre os modelos chineses (US$ 0,49 no índice); lidera Automation-Bench e LOCA-Bench 256K na tabela do fabricante.",
+      "community_benchmark": "29 na Artificial Analysis (#7 de 29), #42 no LMArena WebDev e fora do top 10 do OpenRouter. No HN a recepção é morna: 'pretty benchmaxed', código mediano e bem atrás do GLM 5.3 em segurança; há elogios pontuais para a escrita e o preço.",
+      "sources": [
+        "https://www.minimax.io/blog/minimax-m31f",
+        "https://platform.minimax.io/docs/guides/pricing-paygo",
+        "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+        "https://artificialanalysis.ai/models/minimax-m3-1-flash",
+        "https://news.ycombinator.com/item?id=50154540"
+      ]
+    },
+    {
+      "brand": "Mistral AI",
+      "model": "mistral-large-4-0",
+      "description": "Mistral Large 4 (GA em 05/11/2026) é o flagship open-weight da Mistral: MoE de ~1T parâmetros e 52B ativos, texto e imagem, três níveis de raciocínio e contexto de 1M. US$ 0,70 / US$ 2,10 por 1M; licença Mistral Ecosystem (MIT modificada, com licença comercial exigida para quem oferece o modelo como serviço).",
+      "when_use": "Coding agêntico e de terminal, cibersegurança, agentes de finanças e jurídico, pesquisa web e análise de documentos, sobretudo quando se exige soberania europeia ou self-host. Não use quando a latência importa (~42 s até o primeiro token em high), quando precisa do melhor coding absoluto (fica atrás do Claude Opus) ou com hardware local limitado (~500GB em 4-bit).",
+      "effiency": "Coding agêntico open-weight gastando poucos tokens: empata com o GLM-5.3 no Coding Agent Index com 47% menos tokens por tarefa e lidera os open-weights no Terminal-Bench 4.0 (41%), segundo a Mistral.",
+      "community_benchmark": "26 na Artificial Analysis (#13 de 29 abertos) e #134 no LMArena Text. No r/MistralAI o coding foi comparado ao do DeepSeek V4 Flash / GLM 5.2, com elogios ao tom e à segurança; no r/LocalLLaMA reclamam do tamanho e da queda de throughput no preview. Nenhum Mistral está no top 10 do OpenRouter.",
+      "sources": [
+        "https://docs.mistral.ai/models/mistral-large-4-0",
+        "https://mistral.ai/news/mistral-large-4/",
+        "https://artificialanalysis.ai/models/mistral-large-4",
+        "https://arena.ai/leaderboard/text"
+      ]
+    },
+    {
+      "brand": "Mistral AI",
+      "model": "mistral-small-2603",
+      "description": "Mistral Small 4 (16/03/2026) é o MoE aberto (Apache 2.0) de 119B totais e ~6,5B ativos que junta instruct, raciocínio e coding; texto e imagem, contexto de 256K. US$ 0,15 / US$ 0,60 por 1M.",
+      "when_use": "Modelo geral barato para chat corporativo, Q&A, extração, function calling, coding leve e agentes de alto volume, também em self-host quantizado. Não use para raciocínio ou agentes de fronteira (Large 4); em hardware modesto, modelos densos de 27-30B rendem parecido com menos memória.",
+      "effiency": "Respostas enxutas e rápidas: 142 tokens/s, ~US$ 0,04 por tarefa no índice e bem menos tokens de saída que a mediana.",
+      "community_benchmark": "4 na Artificial Analysis v5, igual à mediana da classe. No HN, um usuário o achou comparável ao Qwen 3.6 27B e melhor para quantizar; outro reclamou que com 119B não supera modelos com 1/4 do tamanho, e que Gemma 4 e Qwen lideram o segmento.",
+      "sources": [
+        "https://docs.mistral.ai/models/mistral-small-4-0-26-03",
+        "https://mistral.ai/news/mistral-small-4/",
+        "https://artificialanalysis.ai/models/mistral-small-4"
+      ]
+    },
+    {
+      "brand": "Mistral AI",
+      "model": "ministral-14b-2512",
+      "description": "Ministral 3 14B (02/12/2025) é o modelo denso aberto (Apache 2.0) da Mistral para edge, com texto e imagem e variantes base, instruct e reasoning; contexto de 256K. US$ 0,20 / US$ 0,20 por 1M.",
+      "when_use": "Deploy local ou on-prem numa única GPU, function calling, JSON estruturado, OCR leve e RAG barato. Não use em coding agêntico longo nem em raciocínio de fronteira.",
+      "effiency": "Raciocínio forte para o tamanho: 89,8 no AIME 2024 na variante reasoning, contra 83,7 do Qwen3 14B (números do fabricante).",
+      "community_benchmark": "Sem nota no índice v5 da Artificial Analysis (73 tokens/s). Também está disponível no Bedrock. Relatos da comunidade não confirmados.",
+      "sources": [
+        "https://docs.mistral.ai/models/ministral-3-14b-25-12",
+        "https://artificialanalysis.ai/models/ministral-3-14b",
+        "https://arxiv.org/pdf/2601.08584v1"
+      ]
+    },
+    {
+      "brand": "Mistral AI",
+      "model": "ministral-8b-2512",
+      "description": "Ministral 3 8B (02/12/2025) é o modelo denso aberto (Apache 2.0) de 8B, com texto e imagem e variantes base, instruct e reasoning; contexto de 256K e US$ 0,15 por 1M.",
+      "when_use": "Assistentes locais, classificação, extração e tool calling em hardware de consumo e apps embarcados multilíngues. Não use em raciocínio complexo de várias etapas ou coding sério.",
+      "effiency": "Desempenho por parâmetro: a versão base supera o Gemma 3 12B na maioria dos benchmarks.",
+      "community_benchmark": "MMLU 76,1 e MATH 62,6 (números do fabricante); sem nota na Artificial Analysis. Relatos da comunidade não confirmados.",
+      "sources": [
+        "https://docs.mistral.ai/models/ministral-3-8b-25-12",
+        "https://www.deeplearning.ai/the-batch/mistral-uses-cascade-distillation-on-mistral-3-to-build-ministral-family"
+      ]
+    },
+    {
+      "brand": "Mistral AI",
+      "model": "ministral-3b-2512",
+      "description": "Ministral 3 3B (02/12/2025) é o menor da família, aberto (Apache 2.0), com texto e imagem e contexto de 256K; US$ 0,10 por 1M.",
+      "when_use": "On-device (celular, edge), roteamento e classificação, extração simples e modelo de rascunho para speculative decoding. Não use quando é preciso conhecimento factual amplo ou raciocínio de várias etapas.",
+      "effiency": "Custo e footprint mínimos, competitivo com Gemma 3 4B e Qwen 3 4B e à frente deles em MATH.",
+      "community_benchmark": "MMLU 70,7 e MATH 60,1 (números do fabricante). Relatos da comunidade não confirmados.",
+      "sources": [
+        "https://docs.mistral.ai/models/ministral-3-3b-25-12",
+        "https://www.emergentmind.com/topics/ministral-3-series"
+      ]
+    },
+    {
+      "brand": "Mistral AI",
+      "model": "codestral-2508",
+      "description": "Codestral 25.08 (30/07/2025) segue como o modelo de autocomplete de código atual da Mistral: fechado, de baixa latência e com suporte a FIM (preencher código no meio do arquivo). Contexto de 128K, US$ 0,30 / US$ 0,90 por 1M.",
+      "when_use": "Autocomplete e tab-completion na IDE (Continue em VS Code e JetBrains), FIM e geração curta de alta frequência. Não use para agentes multi-arquivo ou tarefas de repositório inteiro (use o Large 4).",
+      "effiency": "Latência de completion num endpoint dedicado, sem gastar tokens de raciocínio.",
+      "community_benchmark": "Sem benchmark independente de FIM para esta versão; um review independente deu 8 de 9 em tarefas Python, com média de 2,5 s por resposta. Relatos da comunidade não confirmados.",
+      "sources": [
+        "https://docs.mistral.ai/models/codestral-25-08",
+        "https://mistral.ai/news/codestral-25-08",
+        "https://www.datallmlab.com/blog/codestral-review.html"
+      ]
+    },
+    {
+      "brand": "Cohere",
+      "model": "command-a-plus-05-2026",
+      "description": "Command A+ (20/05/2026) é o primeiro MoE da Cohere (218B totais, 25B ativos), com pesos abertos sob Apache 2.0; une visão, raciocínio, tradução e tool use em 48 idiomas. Contexto de 128K; no OpenRouter sai por US$ 0,30 / US$ 1,50 por 1M (preço oficial não confirmado).",
+      "when_use": "RAG corporativo com citações, IA soberana em VPC, on-prem ou air-gapped, cenários multilíngues e casos em que inventar fato custa caro (setor público, regulado). Não use em coding ou agentes difíceis, ciência, finanças ou jurídico, áreas em que os benchmarks independentes o colocam no fim da tabela.",
+      "effiency": "É o que menos alucina: 1º no AA-Omniscience Non-Hallucination (86%), além de muito rápido e barato (#1 em custo por tarefa na Artificial Analysis).",
+      "community_benchmark": "Só 6 no índice v5 da Artificial Analysis (#29 de 29 abertos), mas #2 em velocidade; último no Finance Agent v2 da Vals e fora do top 152 do LMArena. A comunidade elogiou a licença Apache 2.0, que acabou com a restrição não comercial dos Command anteriores.",
+      "sources": [
+        "https://docs.cohere.com/docs/models",
+        "https://cohere.com/blog/cohere-releases-command-a-plus",
+        "https://artificialanalysis.ai/models/command-a-plus",
+        "https://www.vals.ai/models/cohere_command-a-plus-05-2026"
+      ]
+    },
+    {
+      "brand": "Cohere",
+      "model": "north-mini-code-1.0",
+      "description": "North Mini Code (09/06/2026) é o primeiro modelo de coding agêntico da Cohere: MoE de 30B totais e 3B ativos, Apache 2.0, contexto de 256K, roda numa H100 em FP8. Gratuito na API até o rate limit.",
+      "when_use": "Agentes de código locais ou soberanos (OpenCode, SWE-agent), tarefas de terminal, revisão de código e subagentes baratos. Não use quando precisa do melhor resultado da classe (o Qwen3.6-35B-A3B supera) nem para agentes fora de código.",
+      "effiency": "Velocidade e custo: até 2,8x o throughput do Devstral Small 2 e ~171 tokens/s, com o melhor tempo por tarefa da categoria na Artificial Analysis.",
+      "community_benchmark": "67,6 no SWE-bench Verified e 36,0 no Terminal-Bench v2 (números do fabricante), mas só 3 na Artificial Analysis v5 (#10 de 10). Sebastian Raschka nota que o Qwen3.6-35B-A3B lidera todas as métricas agênticas e que a tabela da Cohere mistura fontes.",
+      "sources": [
+        "https://docs.cohere.com/docs/north-mini-code-1.0",
+        "https://cohere.com/blog/north-mini-code",
+        "https://artificialanalysis.ai/models/north-mini-code",
+        "https://sebastianraschka.com/blog/2026/north-mini-code-agentic-coding.html"
+      ]
+    },
+    {
+      "brand": "Cohere",
+      "model": "north-small-translate-1.0",
+      "description": "North Small Translate (set/2026) é o MoE de tradução da Cohere (218B totais, 25B ativos) para mais de 50 idiomas, só texto, contexto de 16K. Pesos sob CC BY-NC 4.0 (só uso não comercial); uso comercial via Cohere Model Vault.",
+      "when_use": "Tradução corporativa com residência de dados, documentos longos e idiomas do Sul da Ásia e do Oriente Médio. Não use para chat geral, raciocínio ou código, nem em produto comercial com os pesos abertos.",
+      "effiency": "Qualidade de tradução por custo: 83,6 no WMT26 contra 81,37 do DeepL e 68,20 do Google Translate (números do fabricante).",
+      "community_benchmark": "Todos os números são da Cohere; não há avaliação independente nem relatos de usuários (não confirmado).",
+      "sources": [
+        "https://docs.cohere.com/docs/models",
+        "https://itbrief.co.uk/story/cohere-launches-north-small-translate-in-translation-push"
+      ]
+    },
+    {
+      "brand": "Cohere",
+      "model": "tiny-aya-global",
+      "description": "Tiny Aya Global (17/02/2026) é o modelo de 3,35B da Cohere, com pesos abertos (CC-BY-NC), multilíngue em 70 idiomas e contexto de 8K, com versões GGUF para rodar no dispositivo e variantes regionais (Earth, Fire, Water).",
+      "when_use": "Tradução e compreensão offline em celular ou laptop e apps em idiomas pouco atendidos. Não use com contexto longo, em uso comercial sem licença nem para raciocínio ou agentes.",
+      "effiency": "Cobertura multilíngue em tamanho mínimo: supera o Gemma 3 4B em tradução em 46 de 55 idiomas (números do fabricante).",
+      "community_benchmark": "Os benchmarks vêm só do relatório técnico da Cohere; não há leaderboard público. Há um relato da comunidade de que um template de prompt errado no Ollama derrubou o desempenho em mais de 30%.",
+      "sources": [
+        "https://docs.cohere.com/docs/tiny-aya",
+        "https://arxiv.org/abs/2603.11510"
+      ]
+    },
+    {
+      "brand": "Amazon",
+      "model": "amazon.nova-2-lite-v1:0",
+      "description": "Amazon Nova 2 Lite (02/12/2025) é o modelo fechado da Amazon no Bedrock: texto, imagem e vídeo de entrada, raciocínio opcional (low/medium/high), code interpreter, web grounding e MCP remoto. Contexto de 1M, US$ 0,30 / US$ 2,50 por 1M.",
+      "when_use": "Clientes AWS que fazem chatbot de suporte, processamento de documentos e vídeo, automação de processos e RAG com contexto longo dentro do Bedrock, aproveitando Guardrails, IAM e logs. Não use para raciocínio ou coding de ponta, quando precisa de JSON estruturado nativo, nem fora da AWS.",
+      "effiency": "Contexto de 1M com vídeo e raciocínio ligado só quando necessário, a ~150 tokens/s, já integrado à governança do Bedrock.",
+      "community_benchmark": "Segundo a Amazon, empata ou supera o Claude Haiku 4.5 em 13 de 15 benchmarks; não tem nota no índice v5 da Artificial Analysis e não aparece no LMArena. Revisores o chamam de 'rápido e conveniente dentro do Bedrock', com lock-in na AWS; não há threads relevantes de comunidade. Em julho/2026 a Amazon pôs o resto da linha Nova em manutenção, mantendo o Lite.",
+      "sources": [
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-2-lite.html",
+        "https://aws.amazon.com/nova/models/",
+        "https://artificialanalysis.ai/models/nova-2-0-lite",
+        "https://beam.ai/llm/amazon-nova/"
+      ]
+    },
+    {
+      "brand": "Amazon",
+      "model": "amazon-nova-2-pro (preview; ID de API não confirmado)",
+      "description": "Amazon Nova 2 Pro (anunciado em 02/12/2025, ainda em preview) é o modelo de raciocínio mais inteligente da linha Nova 2, para tarefas complexas de várias etapas; acesso antecipado via Nova Forge. US$ 1,25 / US$ 10 por 1M, segundo a Artificial Analysis.",
+      "when_use": "Clientes do Nova Forge que precisam de um modelo Amazon mais forte que o Lite para agentes multi-etapa. Não use em produção crítica: é preview, sumiu da página oficial de modelos e a Amazon redirecionou o esforço para um novo modelo de fronteira.",
+      "effiency": "Tool use agêntico: 92,7 no τ²-bench (telecom) e 70% no SWE-bench Verified, segundo o relatório técnico da Amazon.",
+      "community_benchmark": "Sem nota na Artificial Analysis e sem avaliação independente ou relatos de usuários; revisores recomendam não tratar números de preview como evidência de produção.",
+      "sources": [
+        "https://aws.amazon.com/about-aws/whats-new/2025/12/nova-2-foundation-models-amazon-bedrock",
+        "https://artificialanalysis.ai/models/nova-2-0-pro",
+        "https://beam.ai/llm/amazon-nova/"
+      ]
+    }
+  ]
+}
