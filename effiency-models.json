@@ -1,6 +1,6 @@
 {
   "updated_at": "2026-11-17",
-  "notes": "Notas da Artificial Analysis referem-se ao Intelligence Index v5.0.1 (escala menor que versões anteriores, não comparável com números de lançamento); posições da Artificial Analysis conferidas em 17/11/2026, após o lançamento do GPT-6.2 Astra/Sol, pelo leaderboard 'Current' (https://artificialanalysis.ai/leaderboards/models, uma linha por família de modelo; empates indicados); a página individual de cada modelo conta variantes de effort e mostra posições diferentes (ex.: GPT-6.2 Astra #3 de 91). LMArena: Text de 11/11/2026 e WebDev/Agent de 13/11/2026 (GPT-6.2 Astra ainda não listado). OpenRouter: dados até 14/11/2026 nos itens não afetados; conferido com dados até 16/11/2026 para o GPT-6.2 Astra (ainda sem uso no ranking). Números marcados como 'do fabricante' não foram auditados por terceiros.",
+  "notes": "Notas da Artificial Analysis referem-se ao Intelligence Index v5.0.1 (escala menor que versões anteriores, não comparável com números de lançamento); posições da Artificial Analysis conferidas em 17/11/2026, após o lançamento do GPT-6.2 Astra/Sol, pelo leaderboard 'Current' (https://artificialanalysis.ai/leaderboards/models, uma linha por família de modelo; empates indicados); a página individual de cada modelo conta variantes de effort e mostra posições diferentes (ex.: GPT-6.2 Astra #3 de 91). LMArena: Text de 11/11/2026 e WebDev/Agent de 13/11/2026 (GPT-6.2 Astra e GPT-6.2 Sol ainda não listados; Qwen4-Max conferido no WebDev em 17/11/2026, como preliminar). OpenRouter: dados até 14/11/2026 nos itens não afetados; conferido com dados até 16/11/2026 para GPT-6.2 Astra, GPT-6.2 Sol e Qwen4-Max (fora do top 10 semanal). Números marcados como 'do fabricante' não foram auditados por terceiros.",
   "items": [
     {
       "brand": "Anthropic",
@@ -68,7 +68,7 @@
       "description": "Claude Haiku 5.5 (07/10/2026) é o modelo pequeno, rápido e barato da Anthropic, o primeiro Haiku com níveis de effort (padrão medium). Contexto de 1M; US$ 0,10 / US$ 0,50 por 1M até 100K tokens de prompt e US$ 0,50 / US$ 2,50 acima disso.",
       "when_use": "Classificação, extração, sumarização, roteamento, apoio a RAG, suporte ao vivo e subagente do Opus/Sonnet (triagem de logs, agrupamento de bugs). Não use em coding agêntico complexo, em prompts acima de 100K (preço 5x maior) nem em chat em tempo real com thinking ligado (latência alta até o primeiro token).",
       "effiency": "Throughput por preço: é o modelo mais rápido que a Artificial Analysis já mediu (237 tokens/s), com entrada a US$ 0,10 por 1M.",
-      "community_benchmark": "36 na Artificial Analysis (empatado em #13, US$ 0,41 por tarefa), #39 no LMArena WebDev e #133 no Text; 40% no Terminal-Bench 4.0. No HN elogiam preço, velocidade e desempenho como subagente, achando-o mais esperto que o GPT-6 Luna. Críticas: o corte de preço em 100K é baixo para agentes, custa cerca de 3x mais por tarefa que o Luna e vai mal em perguntas estatísticas mais profundas.",
+      "community_benchmark": "36 na Artificial Analysis (#14 no leaderboard Current, empatado com o Muse Ember; US$ 0,41 por tarefa), #39 no LMArena WebDev e #133 no Text; 40% no Terminal-Bench 4.0. No HN elogiam preço, velocidade e desempenho como subagente, achando-o mais esperto que o GPT-6 Luna. Críticas: o corte de preço em 100K é baixo para agentes, custa cerca de 3x mais por tarefa que o Luna e vai mal em perguntas estatísticas mais profundas.",
       "sources": [
         "https://www.anthropic.com/news/claude-haiku-5-5",
         "https://platform.claude.com/docs/en/about-claude/models/overview",
@@ -97,6 +97,33 @@
     },
     {
       "brand": "OpenAI",
+      "model": "gpt-6.2-sol",
+      "description": "GPT-6.2 Sol (17/11/2026) é o modelo intermediário de raciocínio da OpenAI e sucessor do GPT-6.1 Sol, descrito por ela como 'go-to model for everyday work, from coding to powering agents at scale'. Contexto de 1,05M (até 922K de entrada), saída de 128K, entrada de texto e imagem, conhecimento até 01/06/2026; US$ 2 / US$ 10 por 1M (US$ 4 / US$ 15 acima de 272K de entrada), cache a US$ 0,10, o mesmo preço do 6.1 Sol. A API rejeita effort none; modo Fast custa 2x e Ultrafast 3x (6x a partir de 01/03/2027).",
+      "when_use": "Padrão da OpenAI para coding agêntico do dia a dia (Codex, refatoração, debugging), agentes em escala, automação multi-etapa e documentos: a OpenAI indica o Sol para 'everyday coding and agent workflows' e o Astra para raciocínio e código mais exigentes. Substitui o GPT-6.1 Sol em projetos novos (mesmo preço, 57 contra 55 na Artificial Analysis). Frente ao GPT-6.2 Astra, faz 5 pontos a menos por ~1/4 do custo por tarefa (US$ 1,01 contra US$ 4,00): use o Astra em pesquisa e ciência, coordenação de subagentes e quando a precisão máxima for crítica. Frente ao Opus 5.5 e ao Sonnet 5.5, custa ~1/10 por tarefa no índice e pontua entre os dois (57 contra 59 e 55), mas alguns usuários do HN relatam overengineering no Sol (zergrush) e preferem Opus ou Fable quando o código importa (jorl17): use o Opus quando a qualidade do código pesar mais que o custo. Para computer use em escala, raciocínio visual e tarefas em que velocidade e preço por token pesam, o GPT-6.1 Terra custa metade por token. Não use em segurança ofensiva: é Critical em cyber no system card, as restrições são mais rígidas e a série 6.2 ainda não está no Daybreak (Blue sozinho não reduz as salvaguardas); para cyber hoje, use GPT-6.1 Sol ou GPT-6 Astra pelo Daybreak (aprovação Red, parâmetro daybreak_blue) ou o GPT-6 Cyber. Evite effort max em fluxos sensíveis a latência (~58 s até o primeiro token; ~3 s em medium). Peça explicitamente que reporte bloqueios: segundo o system card, os modelos 6.2 omitem obstáculos conhecidos com mais frequência.",
+      "effiency": "É o mais barato por tarefa entre os seis primeiros do leaderboard Current da Artificial Analysis: 57 (max) a US$ 1,01 e 7,9 min por tarefa; em medium faz 53 com ~3 s até o primeiro token. O recorte é esse: não é o mais barato da OpenAI (o GPT-6 Luna max faz 28 a US$ 0,15). Segundo o anúncio da OpenAI (número do fabricante), fica a 0,5 ponto do Astra no FrontierCode 2.0 por cerca de 1/5 do custo. A OfficeChai publicou uma leitura aproximada de gráfico, não legível no anúncio, de ~57% para ~68% no Terminal-Bench-Science frente ao GPT-6.1 Sol.",
+      "community_benchmark": "57 na Artificial Analysis (max, #5 no leaderboard Current, atrás de Fable 5.2, GPT-6.2 Astra, Gemini 4 Carbon e Opus 5.5; 56 em xhigh, 55 em high e 53 em medium). Ainda não aparece no LMArena (Text de 11/11, WebDev de 13/11) nem no top 10 de uso do OpenRouter (dados até 16/11). No HN, no dia do lançamento, houve opiniões individuais, não consenso. A favor: pvab3 notou que o 6.2 Sol é mais barato que o 6.1 Sol (https://news.ycombinator.com/item?id=50535437); onlyrealcuzzo disse que o Sol segue 'way cheaper' que qualquer modelo da mesma liga e parece mais rápido para concluir tarefas, sem nomear a versão nesse trecho (https://news.ycombinator.com/item?id=50535642); theanonymousone o chamou de 'workhorse' na conta da empresa (https://news.ycombinator.com/item?id=50535361). Contra: zergrush, ao avaliar Astra medium e Sol xhigh, disse que o Sol ainda faz overengineering (https://news.ycombinator.com/item?id=50536739); itvision relatou, numa base C++ de 1,5 MB, que ao menos 1/3 das tarefas concluídas pelo Sol precisaram de limpeza pelo Astra, sem informar a versão do Sol (https://news.ycombinator.com/item?id=50535578); scandinavian chamou o código de Sol e Astra de o mais 'sloppy' que viu em muito tempo (https://news.ycombinator.com/item?id=50535988); jorl17 achou os modelos Sol lentos demais para usar e, se o código importa, confia mais em Opus ou Fable (https://news.ycombinator.com/item?id=50535774). No Preparedness Framework é Critical em cyber e High em bio, mas, ao contrário do Astra, fica abaixo de High em autoaperfeiçoamento.",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-6.2-sol",
+        "https://developers.openai.com/api/docs/pricing",
+        "https://developers.openai.com/api/docs/changelog",
+        "https://deploymentsafety.openai.com/gpt-6-2-astra-sol",
+        "https://developers.openai.com/api/docs/guides/daybreak",
+        "https://artificialanalysis.ai/models/gpt-6-2-sol",
+        "https://artificialanalysis.ai/leaderboards/models",
+        "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+        "https://officechai.com/ai/gpt-6-2-sol-gpt-6-2-astra-benchmarks/",
+        "https://news.ycombinator.com/item?id=50535230",
+        "https://news.ycombinator.com/item?id=50535437",
+        "https://news.ycombinator.com/item?id=50535642",
+        "https://news.ycombinator.com/item?id=50535361",
+        "https://news.ycombinator.com/item?id=50536739",
+        "https://news.ycombinator.com/item?id=50535578",
+        "https://news.ycombinator.com/item?id=50535988",
+        "https://news.ycombinator.com/item?id=50535774"
+      ]
+    },
+    {
+      "brand": "OpenAI",
       "model": "gpt-6-astra",
       "description": "GPT-6 Astra (03/09/2026) foi o flagship de raciocínio da OpenAI para o trabalho mais exigente (raciocínio complexo, código, computer use e pesquisa) até ser sucedido pelo GPT-6.2 Astra em 17/11/2026. Contexto de 1,05M, saída de 128K, US$ 10 / US$ 50 por 1M (US$ 20 / US$ 75 acima de 272K de entrada).",
       "when_use": "Legado: em projetos novos use o GPT-6.2 Astra, que custa 20% menos por token e supera este modelo nos benchmarks do fabricante. Continua na API sem data de desligamento (em 17/11/2026), então mantenha-o só em pipelines já validados ou para defensores aprovados que acessam o GPT-6 Astra pelo Daybreak (organização com aprovação Red; parâmetro daybreak_blue), já que os modelos 6.2 ainda não estão no Daybreak. Não use em volume, chat interativo ou fluxos sensíveis a latência (primeiro token em ~230 s no esforço max).",
@@ -117,8 +144,8 @@
     {
       "brand": "OpenAI",
       "model": "gpt-6.1-sol",
-      "description": "GPT-6.1 Sol (29/09/2026) é o modelo intermediário de raciocínio da OpenAI, com desempenho próximo ao Astra por custo menor, voltado a coding complexo, computer use e trabalho profissional. Contexto de 1,05M, saída de 128K, US$ 2 / US$ 10 por 1M.",
-      "when_use": "Substituído pelo GPT-6.2 Sol (17/11/2026) ao mesmo preço: em projetos novos de coding agêntico (Codex, refatoração, debugging), automação multi-etapa, documentos e computer use, prefira o 6.2 Sol. Mantenha o 6.1 Sol só em pipelines já validados. Não use quando a precisão máxima for crítica (GPT-6.2 Astra), para volume barato (Terra ou Luna) ou quando precisar de baixa latência em esforço alto.",
+      "description": "GPT-6.1 Sol (29/09/2026) foi o modelo intermediário de raciocínio da OpenAI até ser sucedido pelo GPT-6.2 Sol em 17/11/2026, com desempenho próximo ao Astra por custo menor, voltado a coding complexo, computer use e trabalho profissional. Contexto de 1,05M, saída de 128K, US$ 2 / US$ 10 por 1M.",
+      "when_use": "Sucedido pelo GPT-6.2 Sol (17/11/2026) ao mesmo preço: em projetos novos de coding agêntico (Codex, refatoração, debugging), automação multi-etapa, documentos e computer use, prefira o 6.2 Sol. Continua na API sem aviso de deprecação (em 17/11/2026); mantenha-o em pipelines já validados, para usar o modo Flex (US$ 1 / US$ 5, que o 6.2 Sol não tem) ou para defensores aprovados no Daybreak (organização com aprovação Red, parâmetro daybreak_blue), já que a série 6.2 ainda não está no programa. Não use quando a precisão máxima for crítica (GPT-6.2 Astra), para volume barato (Terra ou Luna) ou quando precisar de baixa latência em esforço alto.",
       "effiency": "Custo-benefício perto do topo: 75,2% no DeepSWE v1.1 a US$ 0,65 por tarefa contra 73-74% do GPT-6 Astra a ~US$ 4 (números do fabricante), e só 2 pontos atrás do GPT-6 Astra na Artificial Analysis por ~1/5 do custo.",
       "community_benchmark": "55 na Artificial Analysis (US$ 1,27 por tarefa; saiu da tabela de modelos atuais após o GPT-6.2 Sol, que faz 57), #6 no LMArena WebDev (1743), #30 no Text e #10 em uso semanal no OpenRouter. No HN o chamam de 'crazy no Codex', com o cache barato esticando os limites. Queixas: o Opus ainda é superior em código ('metade do preço, metade da qualidade'), lentidão em esforço medium e compactação frequente no Codex.",
       "sources": [
@@ -129,7 +156,8 @@
         "https://openrouter.ai/rankings",
         "https://news.ycombinator.com/item?id=49896586",
         "https://developers.openai.com/api/docs/models/gpt-6.2-sol",
-        "https://officechai.com/ai/gpt-6-2-sol-gpt-6-2-astra-benchmarks/"
+        "https://officechai.com/ai/gpt-6-2-sol-gpt-6-2-astra-benchmarks/",
+        "https://developers.openai.com/api/docs/guides/daybreak"
       ]
     },
     {
@@ -504,17 +532,38 @@
     },
     {
       "brand": "Alibaba (Qwen)",
+      "model": "qwen4-max",
+      "description": "Qwen4-Max (16/11/2026) é o novo flagship da Alibaba e sucessor do Qwen3.8-Max, voltado a raciocínio complexo e código; é proprietário e não tem pesos abertos (segundo o anúncio da Alibaba, também reportado pela VentureBeat, MoE com 2,4T de parâmetros e 71B ativos, e a Alibaba promete abrir só modelos Qwen4 menores, sem data). Contexto de 1M, com entrada máxima de 991.808 tokens sem thinking e 983.616 com thinking, saída de até 131K sem thinking e 262K com thinking, entrada de texto, imagem e vídeo; US$ 1,50 / US$ 4,50 por 1M em Singapura (US$ 1,413 / US$ 4,24 em Pequim e nas regiões Global). Cache: a leitura custa US$ 0,075 em Singapura e US$ 0,071 em Pequim e na tabela Global de Hong Kong; a gravação de cache tem tarifa distinta (ver a tabela de preços). Thinking ligado por padrão, com reasoning_effort low, high ou xhigh (padrão high); compatível com as APIs da OpenAI (Chat Completions e Responses) e com a Anthropic Messages.",
+      "when_use": "Quem já está na Alibaba Cloud ou precisa de regiões na China e na Ásia, agentes longos de escritório e código, front-end/web e agentes multimodais com vídeo na entrada (o GPT-6.2 Sol não aceita vídeo). Substitui o Qwen3.8-Max na API: custa menos por token (US$ 1,50 / US$ 4,50 contra US$ 2 / US$ 6) e pontua mais (43 contra 34 na Artificial Analysis). Não use quando o critério é inteligência por custo: na Artificial Analysis o GPT-6.2 Sol faz 57 por US$ 1,01 por tarefa contra 43 a US$ 3,27, e o Kimi K3.1 Pro, aberto, faz 46 por US$ 3,68. Também não use quando a latência importa (~32 min por tarefa e ~148 s até o primeiro token no índice) nem quando precisa de pesos abertos ou self-host: use o Kimi K3.1 Pro, aberto, ou o checkpoint aberto Qwen3.8-2.4T-A95B, só de texto, para execução local; visão e vídeo ficam na API.",
+      "effiency": "Custo por tarefa frente ao antecessor: segundo o anúncio da Alibaba (também reportado pela VentureBeat), o custo médio na avaliação interna Work360 caiu de US$ 4,43 para US$ 1,67 por tarefa, com score de 52,69 contra 47,74 do Qwen3.8-Max (números do fabricante). Na Artificial Analysis o salto é de 34 para 43, a US$ 3,27 por tarefa.",
+      "community_benchmark": "43 na Artificial Analysis (#13 no leaderboard Current, US$ 3,27 por tarefa, 3 pontos atrás do Kimi K3.1 Pro), lento (55 tokens/s) e verboso. Estreou no LMArena WebDev com 1750 (preliminar, 1.814 votos); ainda não aparece no Text (11/11) nem no top 10 de uso do OpenRouter (dados até 16/11). No HN a recepção foi morna: 'flagship-killer' mais que frontier, 'não supera nem o Kimi 3.1' e caro por tarefa frente ao GPT-6.1 Sol; também criticam o fim dos pesos abertos, que o 3.8-Max tinha. No lançamento do preview (qwen4-max-preview), o usuário flessio relatou, de segunda mão e sem confirmação, que prompts de engenharia reversa deram erro de conexão e que o chat atribuiu isso a um bloqueio, sem saber se era real ou alucinação (https://news.ycombinator.com/item?id=50449332, no tópico https://news.ycombinator.com/item?id=50449130).",
+      "sources": [
+        "https://www.alibabacloud.com/help/en/model-studio/models",
+        "https://www.alibabacloud.com/help/en/model-studio/qwen4-max",
+        "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
+        "https://artificialanalysis.ai/models/qwen4-max",
+        "https://artificialanalysis.ai/leaderboards/models",
+        "https://arena.ai/leaderboard/webdev",
+        "https://www.alibabacloud.com/blog/alibaba-cloud-brings-qwen4-max-to-the-enterprise-an-ai-colleague-that-plans-builds-and-delivers-finished-work_603786",
+        "https://venturebeat.com/technology/alibabas-qwen4-max-cuts-ai-task-costs-but-benchmarks-show-an-uneven-challenge-to-frontier-rivals",
+        "https://news.ycombinator.com/item?id=50513215",
+        "https://news.ycombinator.com/item?id=50449130"
+      ]
+    },
+    {
+      "brand": "Alibaba (Qwen)",
       "model": "qwen3.8-max",
-      "description": "Qwen3.8-Max (GA em 03/08/2026; snapshot 0902) é o flagship da Alibaba: MoE de 2,4T totais e 95B ativos. A API tem 1M de contexto e entrada de texto, imagem e vídeo por US$ 2 / US$ 6 por 1M; os pesos abertos (Qwen3.8-2.4T-A95B) são só texto e têm licença própria com restrições comerciais.",
-      "when_use": "Agentes longos de código e escritório, front-end/web design, agentes multimodais (documentos, computer use) e quem já está na Alibaba Cloud. Não use quando latência ou custo por tarefa importam (48 min e US$ 10 por tarefa no índice da Artificial Analysis); para volume barato, prefira Qwen3.8-Flash ou DeepSeek Flash.",
+      "description": "Qwen3.8-Max (GA em 03/08/2026; snapshot 0902) foi o flagship da Alibaba até o Qwen4-Max (16/11/2026): MoE de 2,4T totais e 95B ativos. A API tem 1M de contexto e entrada de texto, imagem e vídeo por US$ 2 / US$ 6 por 1M; os pesos abertos (Qwen3.8-2.4T-A95B) são só texto e têm licença própria com restrições comerciais.",
+      "when_use": "Na API, prefira o Qwen4-Max, que custa menos por token (US$ 1,50 / US$ 4,50) e pontua mais (43 contra 34 na Artificial Analysis); a Alibaba não o marcou como legado. Para execução local de texto, use o checkpoint aberto Qwen3.8-2.4T-A95B (só texto, exige thinking, licença própria); visão e vídeo são recursos do Qwen3.8-Max hospedado, que a Alibaba descreve como a versão oficial baseada nesse checkpoint, e ficam na API. Mantenha o Qwen3.8-Max em pipelines já validados de agentes longos de código e escritório, front-end/web design, agentes multimodais via API (documentos, computer use) e para quem já está na Alibaba Cloud. Não use quando latência ou custo por tarefa importam (48 min e US$ 10 por tarefa no índice da Artificial Analysis); para volume barato, prefira Qwen3.8-Flash ou DeepSeek Flash.",
       "effiency": "Front-end/web e agentes multimodais: #15 no LMArena WebDev e, segundo a Alibaba, 86,1 no OSWorld-Verified e 92,1 no OmniDocBench.",
-      "community_benchmark": "34 na Artificial Analysis (abaixo da mediana dos modelos de preço similar) e muito verboso; #25 no LMArena Text, empatado com Kimi e GLM. Nenhum Qwen está no top 10 do OpenRouter. Reviews elogiam o front-end; no HN criticam a licença e o fato de os pesos abertos não serem o mesmo modelo da API.",
+      "community_benchmark": "34 na Artificial Analysis (abaixo da mediana dos modelos de preço similar; saiu do leaderboard Current após o Qwen4-Max) e muito verboso; #25 no LMArena Text, empatado com Kimi e GLM. Nenhum Qwen está no top 10 do OpenRouter. Reviews elogiam o front-end; no HN criticam a licença e o fato de os pesos abertos não serem o mesmo modelo da API.",
       "sources": [
         "https://www.alibabacloud.com/help/en/model-studio/models",
         "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
         "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
         "https://artificialanalysis.ai/models/qwen3-8-max",
-        "https://news.ycombinator.com/item?id=49150470"
+        "https://news.ycombinator.com/item?id=49150470",
+        "https://www.alibabacloud.com/help/en/model-studio/qwen4-max"
       ]
     },
     {
