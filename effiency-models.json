@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-15",
-  "notes": "Notas da Artificial Analysis referem-se ao Intelligence Index v5.0.1 (escala menor que versões anteriores, não comparável com números de lançamento). LMArena: snapshot de 11/11/2026. OpenRouter: dados até 14/11/2026. Números marcados como 'do fabricante' não foram auditados por terceiros.",
+  "updated_at": "2026-11-17",
+  "notes": "Notas da Artificial Analysis referem-se ao Intelligence Index v5.0.1 (escala menor que versões anteriores, não comparável com números de lançamento); posições da Artificial Analysis conferidas em 17/11/2026, após o lançamento do GPT-6.2 Astra/Sol, pelo leaderboard 'Current' (https://artificialanalysis.ai/leaderboards/models, uma linha por família de modelo; empates indicados); a página individual de cada modelo conta variantes de effort e mostra posições diferentes (ex.: GPT-6.2 Astra #3 de 91). LMArena: Text de 11/11/2026 e WebDev/Agent de 13/11/2026 (GPT-6.2 Astra ainda não listado). OpenRouter: dados até 14/11/2026 nos itens não afetados; conferido com dados até 16/11/2026 para o GPT-6.2 Astra (ainda sem uso no ranking). Números marcados como 'do fabricante' não foram auditados por terceiros.",
   "items": [
     {
       "brand": "Anthropic",
@@ -35,8 +35,8 @@
       "model": "claude-opus-5-5",
       "description": "Claude Opus 5.5 (22/09/2026) é o Opus atual e o modelo padrão da Anthropic, chamado por ela de 'strongest daily driver'. Contexto de 1M, saída de 128K, US$ 4 / US$ 20 por 1M (fast mode US$ 8 / US$ 40); o thinking não pode ser desligado e o effort padrão é medium.",
       "when_use": "Padrão para a maioria dos casos: coding agêntico longo, migrações de codebase, auditorias, code review e caça a bugs, sessões de várias horas, relatórios e análise financeira; também para planejar e deixar a execução com o Sonnet 5.5. Não use em tarefas simples de alto volume (Sonnet 5.5 ou Haiku 5.5 entregam quase o mesmo por menos). Evite effort max: consome 4-6x mais com pouco ganho; high/xhigh costuma ser o ponto ideal.",
-      "effiency": "Melhor relação capacidade/custo do topo de linha: #1 no Terminal-Bench 4.1 (65,76%) e perto do Fable pela metade do preço por token.",
-      "community_benchmark": "#4 no LMArena Text (1507, o Claude mais bem colocado), #2 no WebDev (1815), #3 na Artificial Analysis (59) e #1 no Terminal-Bench 4.1. É o Claude mais usado no OpenRouter (6,98T tokens na semana). No Reddit e no HN foi visto como a 'volta por cima' da Anthropic: rápido, confiável em tarefas de mais de 1 hora e com limites folgados. Queixas: autonomia demais (agir além do pedido), decisões de arquitetura questionáveis, recusas espúrias em cyber e suspeitas de 'nerf' não confirmadas por rastreadores independentes.",
+      "effiency": "Melhor relação capacidade/custo por token do topo de linha: #1 no Terminal-Bench 4.1 (65,76%) e perto do Fable pela metade do preço por token. Por tarefa no índice da Artificial Analysis, porém, o GPT-6.2 Astra sai mais barato (US$ 4,00 contra US$ 10,04) e pontua mais (62 contra 59).",
+      "community_benchmark": "#4 no LMArena Text (1507, o Claude mais bem colocado), #2 no WebDev (1815), #4 na Artificial Analysis (59, atrás de Fable 5.2, GPT-6.2 Astra e Gemini 4 Carbon) e #1 no Terminal-Bench 4.1. É o Claude mais usado no OpenRouter (6,98T tokens na semana). No Reddit e no HN foi visto como a 'volta por cima' da Anthropic: rápido, confiável em tarefas de mais de 1 hora e com limites folgados. Queixas: autonomia demais (agir além do pedido), decisões de arquitetura questionáveis, recusas espúrias em cyber e suspeitas de 'nerf' não confirmadas por rastreadores independentes.",
       "sources": [
         "https://www.anthropic.com/news/claude-opus-5-5",
         "https://platform.claude.com/docs/en/about-claude/models/overview",
@@ -52,7 +52,7 @@
       "description": "Claude Sonnet 5.5 (28/09/2026) é o modelo de equilíbrio entre velocidade e inteligência da Anthropic para coding do dia a dia, agentes e uso corporativo. Contexto de 1M, saída de 128K, US$ 2 / US$ 10 por 1M; effort padrão high.",
       "when_use": "Tarefas cotidianas bem delimitadas: correção de bugs, entendimento de codebase, documentos, planilhas, UI, iteração rápida, agentes de alto volume ou execução do plano definido pelo Opus. Não use em trabalho aberto e complexo que exige julgamento contínuo (o Opus 5.5 é claramente melhor) nem em loops agênticos sem revisão humana. Evite effort max: gera timeouts, edições fora do escopo e piora os resultados.",
       "effiency": "Custo por tarefa: empata com o Opus 5.5 em vários benchmarks (GDPval-AA 1844 vs 1846; Terminal-Bench 4.0 70,6% vs 66,4%) pela metade do preço por token.",
-      "community_benchmark": "#3 no LMArena WebDev (1772), mas só #47 no Text (1473); 55 na Artificial Analysis (empatado em #5) e #2 no Terminal-Bench 4.1 (63,94%). No HN o tom foi 'quase todo o valor do Opus por bem menos', com testes mostrando custo 30-51% menor. Queixas: a Artificial Analysis mediu o maior consumo de tokens que já registrou (~60% acima do Opus), o custo varia mais de 18x entre níveis de effort e há quem ache o Opus 5.5 em low mais esperto e barato.",
+      "community_benchmark": "#3 no LMArena WebDev (1772), mas só #47 no Text (1473); 55 na Artificial Analysis (#6 no leaderboard Current, atrás de Fable 5.2, GPT-6.2 Astra, Gemini 4 Carbon, Opus 5.5 e GPT-6.2 Sol) e #2 no Terminal-Bench 4.1 (63,94%). No HN o tom foi 'quase todo o valor do Opus por bem menos', com testes mostrando custo 30-51% menor. Queixas: a Artificial Analysis mediu o maior consumo de tokens que já registrou (~60% acima do Opus), o custo varia mais de 18x entre níveis de effort e há quem ache o Opus 5.5 em low mais esperto e barato.",
       "sources": [
         "https://www.anthropic.com/news/claude-sonnet-5-5",
         "https://platform.claude.com/docs/en/about-claude/models/overview",
@@ -78,34 +78,58 @@
     },
     {
       "brand": "OpenAI",
+      "model": "gpt-6.2-astra",
+      "description": "GPT-6.2 Astra (17/11/2026) é o novo flagship de raciocínio da OpenAI e sucessor do GPT-6 Astra, para pesquisa, ciência, código e projetos longos multi-etapa. Contexto de 1,05M (até 922K de entrada), saída de 128K, entrada de texto e imagem; US$ 8 / US$ 40 por 1M (US$ 16 / US$ 60 acima de 272K de entrada), 20% abaixo do GPT-6 Astra, com cache a US$ 0,40. Effort de low a max (a API rejeita none); modo Fast custa 2x e Ultrafast 3x (6x a partir de 01/03/2027).",
+      "when_use": "Substitui o GPT-6 Astra em projetos novos: pesquisa e síntese com muitas fontes, ciência, trabalho profissional longo (jurídico, finanças, CAD), agentes de terminal e computer use com até 1M de contexto. Frente ao Claude Fable 5.2, entrega um pouco menos (62 vs 65 na Artificial Analysis) por ~1/6 do custo por tarefa: use o Fable só quando precisar do teto absoluto. Frente ao Opus 5.5 e ao Gemini 4 Carbon, pontua mais e custa menos por tarefa no índice, mas a comunidade ainda prefere Opus 5.5 e Fable 5.2 em código, e o Carbon lidera o LMArena Text. Não use para coding rotineiro ou volume (o GPT-6.2 Sol fica a 0,5 ponto no FrontierCode 2.0 por ~1/5 do custo; o GPT-6.1 Sol foi substituído por ele ao mesmo preço), em chat sensível a latência nem em segurança ofensiva: as restrições de cyber são mais rígidas e o 6.2 ainda não está no Daybreak (segundo o system card, a configuração planejada com menos recusas será só para organizações aprovadas no Daybreak Red; Blue sozinho não basta). Para cyber hoje, as opções são o GPT-6 Astra (Daybreak, parâmetro daybreak_blue) e o GPT-6 Cyber (Daybreak Red). Na API direta, peça explicitamente que reporte bloqueios: segundo o system card, ele omite obstáculos conhecidos com mais frequência que o GPT-6 Astra.",
+      "effiency": "Melhor inteligência por custo no topo: 62 na Artificial Analysis a US$ 4,00 por tarefa, contra 65 a US$ 26,54 do Fable 5.2 e 60 a US$ 5,48 do Gemini 4 Carbon, com preço por token 20% abaixo do GPT-6 Astra. Os números do fabricante (Agents' Last Exam, Terminal-Bench-Science, GDPval) não foram confirmados: o anúncio da OpenAI não abre para leitura automática e o system card não traz esses valores.",
+      "community_benchmark": "62 na Artificial Analysis (Max, #2 no leaderboard Current, atrás do Fable 5.2; 60 em high e 57 em medium). Ainda não aparece no LMArena (Text de 11/11, WebDev e Agent de 13/11) nem no ranking de uso do OpenRouter (dados até 16/11). No HN, no dia do lançamento, elogiam o desempenho pelo preço; criticam código superengenheirado e 'sloppy', alterações não autorizadas no Codex, mais recusas em cyber e que ainda fica atrás de Fable 5.2 e Opus 5.5 em software. Os relatos sobre consumo de tokens divergem. É o primeiro modelo da OpenAI com nível High em autoaperfeiçoamento (Critical em cyber) no Preparedness Framework.",
+      "sources": [
+        "https://developers.openai.com/api/docs/models/gpt-6.2-astra",
+        "https://developers.openai.com/api/docs/pricing",
+        "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+        "https://deploymentsafety.openai.com/gpt-6-2-astra-sol",
+        "https://developers.openai.com/api/docs/guides/daybreak",
+        "https://artificialanalysis.ai/models/gpt-6-2-astra",
+        "https://artificialanalysis.ai/leaderboards/models",
+        "https://officechai.com/ai/gpt-6-2-sol-gpt-6-2-astra-benchmarks/",
+        "https://news.ycombinator.com/item?id=50535230"
+      ]
+    },
+    {
+      "brand": "OpenAI",
       "model": "gpt-6-astra",
-      "description": "GPT-6 Astra (03/09/2026) é o flagship de raciocínio da OpenAI para o trabalho mais exigente: raciocínio complexo, código, computer use e pesquisa. Contexto de 1,05M, saída de 128K, US$ 10 / US$ 50 por 1M (US$ 20 / US$ 75 acima de 272K de entrada).",
-      "when_use": "Tarefas mais difíceis e longas: agentes de computer use, pesquisa e síntese com muitas fontes, matemática e ciência de nível de pesquisa, recuperação em contextos de 512K a 1M. Não use em volume, chat interativo ou fluxos sensíveis a latência (primeiro token em ~230 s no esforço max); para coding do dia a dia o GPT-6.1 Sol entrega quase o mesmo por 1/5 do preço.",
+      "description": "GPT-6 Astra (03/09/2026) foi o flagship de raciocínio da OpenAI para o trabalho mais exigente (raciocínio complexo, código, computer use e pesquisa) até ser sucedido pelo GPT-6.2 Astra em 17/11/2026. Contexto de 1,05M, saída de 128K, US$ 10 / US$ 50 por 1M (US$ 20 / US$ 75 acima de 272K de entrada).",
+      "when_use": "Legado: em projetos novos use o GPT-6.2 Astra, que custa 20% menos por token e supera este modelo nos benchmarks do fabricante. Continua na API sem data de desligamento (em 17/11/2026), então mantenha-o só em pipelines já validados ou para defensores aprovados que acessam o GPT-6 Astra pelo Daybreak (organização com aprovação Red; parâmetro daybreak_blue), já que os modelos 6.2 ainda não estão no Daybreak. Não use em volume, chat interativo ou fluxos sensíveis a latência (primeiro token em ~230 s no esforço max).",
       "effiency": "Teto em computer use, matemática/ciência e contexto longo: OSWorld 2.0 72,6%, FrontierMath Tier 4 97,6%, GPQA Diamond 96,0% e MRCR v2 de 96,3% entre 512K e 1M (números do fabricante).",
-      "community_benchmark": "57 na Artificial Analysis (#4, US$ 6,24 por tarefa), #5 no LMArena WebDev (1764), #42 no Text e #7 no Agent. Usuários elogiam pesquisa e síntese (cita 3-5x mais fontes), visão e depuração difícil. Queixas: lento, caro (limites esgotam rápido), para no meio da tarefa, cauteloso demais e relatos de 'nerf' uma semana após o lançamento; o time do Opencode voltou ao modelo anterior porque o gasto dobrou.",
+      "community_benchmark": "57 na Artificial Analysis (US$ 6,24 por tarefa; era #4 e saiu da tabela de modelos atuais após o GPT-6.2 Astra), #5 no LMArena WebDev (1764), #42 no Text e #7 no Agent. Usuários elogiam pesquisa e síntese (cita 3-5x mais fontes), visão e depuração difícil. Queixas: lento, caro (limites esgotam rápido), para no meio da tarefa, cauteloso demais e relatos de 'nerf' uma semana após o lançamento; o time do Opencode voltou ao modelo anterior porque o gasto dobrou.",
       "sources": [
         "https://developers.openai.com/api/docs/models/gpt-6-astra",
         "https://developers.openai.com/api/docs/pricing",
         "https://artificialanalysis.ai/models/gpt-6-astra",
         "https://arena.ai/leaderboard/webdev",
         "https://news.ycombinator.com/item?id=49571621",
-        "https://decrypt.co/378101/gpt-6-astra-openai-model-dumber-nerfed"
+        "https://decrypt.co/378101/gpt-6-astra-openai-model-dumber-nerfed",
+        "https://developers.openai.com/api/docs/models/gpt-6.2-astra",
+        "https://developers.openai.com/api/docs/guides/daybreak",
+        "https://officechai.com/ai/gpt-6-2-sol-gpt-6-2-astra-benchmarks/"
       ]
     },
     {
       "brand": "OpenAI",
       "model": "gpt-6.1-sol",
       "description": "GPT-6.1 Sol (29/09/2026) é o modelo intermediário de raciocínio da OpenAI, com desempenho próximo ao Astra por custo menor, voltado a coding complexo, computer use e trabalho profissional. Contexto de 1,05M, saída de 128K, US$ 2 / US$ 10 por 1M.",
-      "when_use": "Escolha padrão da OpenAI para coding agêntico (Codex, refatoração, debugging), automação de fluxos de negócio multi-etapa, documentos e computer use; substitui os antigos modelos Codex. Não use quando precisão máxima for crítica e custo não importar (Astra), para volume barato (Terra ou Luna) ou quando precisar de baixa latência em esforço alto.",
-      "effiency": "Custo-benefício perto do topo: 75,2% no DeepSWE v1.1 a US$ 0,65 por tarefa contra 73-74% do Astra a ~US$ 4 (números do fabricante), e só 2 pontos atrás do Astra na Artificial Analysis por ~1/5 do custo.",
-      "community_benchmark": "55 na Artificial Analysis (empatado em #5 com o Sonnet 5.5, US$ 1,27 por tarefa), #6 no LMArena WebDev (1743), #30 no Text e #10 em uso semanal no OpenRouter. No HN o chamam de 'crazy no Codex', com o cache barato esticando os limites. Queixas: o Opus ainda é superior em código ('metade do preço, metade da qualidade'), lentidão em esforço medium e compactação frequente no Codex.",
+      "when_use": "Substituído pelo GPT-6.2 Sol (17/11/2026) ao mesmo preço: em projetos novos de coding agêntico (Codex, refatoração, debugging), automação multi-etapa, documentos e computer use, prefira o 6.2 Sol. Mantenha o 6.1 Sol só em pipelines já validados. Não use quando a precisão máxima for crítica (GPT-6.2 Astra), para volume barato (Terra ou Luna) ou quando precisar de baixa latência em esforço alto.",
+      "effiency": "Custo-benefício perto do topo: 75,2% no DeepSWE v1.1 a US$ 0,65 por tarefa contra 73-74% do GPT-6 Astra a ~US$ 4 (números do fabricante), e só 2 pontos atrás do GPT-6 Astra na Artificial Analysis por ~1/5 do custo.",
+      "community_benchmark": "55 na Artificial Analysis (US$ 1,27 por tarefa; saiu da tabela de modelos atuais após o GPT-6.2 Sol, que faz 57), #6 no LMArena WebDev (1743), #30 no Text e #10 em uso semanal no OpenRouter. No HN o chamam de 'crazy no Codex', com o cache barato esticando os limites. Queixas: o Opus ainda é superior em código ('metade do preço, metade da qualidade'), lentidão em esforço medium e compactação frequente no Codex.",
       "sources": [
         "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
         "https://developers.openai.com/api/docs/pricing",
         "https://techcrunch.com/2026/09/29/openai-launches-gpt-6-1-sol-says-it-nearly-matches-gpt-6-astra-and-costs-less/",
         "https://artificialanalysis.ai/models/gpt-6-1-sol",
         "https://openrouter.ai/rankings",
-        "https://news.ycombinator.com/item?id=49896586"
+        "https://news.ycombinator.com/item?id=49896586",
+        "https://developers.openai.com/api/docs/models/gpt-6.2-sol",
+        "https://officechai.com/ai/gpt-6-2-sol-gpt-6-2-astra-benchmarks/"
       ]
     },
     {
@@ -194,8 +218,8 @@
       "model": "gemini-4-carbon",
       "description": "Gemini 4 Carbon (GA em 10/11/2026) é o modelo de raciocínio mais forte da Google, topo da família Gemini 4, para engenharia de software complexa, matemática, ciência e agentes de longa duração. Contexto de ~1M, saída padrão de 65K (até ~1M com long decode) e entrada multimodal. US$ 2 / US$ 10 por 1M até 30/11/2026 (promoção) e US$ 4 / US$ 20 a partir de 01/12/2026.",
       "when_use": "Problemas mais difíceis: código e debugging multi-etapa longos, pesquisa científica aberta, finanças e jurídico profundos, ciberdefesa (variante cyber com allowlist) e orquestrador em sistemas multiagente, com o Hydrogen executando. Não use para chat interativo ou baixa latência (~72 s até o primeiro token em High), para tarefas rotineiras (a Google indica Argon ou Hydrogen) nem com cota curta, porque gasta mais tokens explorando e verificando.",
-      "effiency": "Inteligência de topo por custo relativamente baixo: 60 na Artificial Analysis a US$ 5,48 por tarefa, contra US$ 26,54 do Claude Fable 5.2 e US$ 10,04 do Opus 5.5; segundo o The Batch, usa 29% menos tokens de saída que o Opus 5.5.",
-      "community_benchmark": "#1 no LMArena Text (1526, preliminar), #4 no WebDev (1768), #2 na Artificial Analysis (60, atrás do Fable 5.2), #2 no Terminal-Bench 4.0 (65,2%) e #2 no Vals Index. No HN elogiam análises que acham pontos que outros modelos perderam e o consideram muito superior ao Argon; as queixas são lentidão, consumo pesado da cota nos planos Pro/Ultra, rollout confuso e que 'mais barato na tabela não significa mais barato no uso'.",
+      "effiency": "Inteligência de topo por custo relativamente baixo: 60 na Artificial Analysis a US$ 5,48 por tarefa, contra US$ 26,54 do Claude Fable 5.2 e US$ 10,04 do Opus 5.5 (o GPT-6.2 Astra, porém, faz 62 a US$ 4,00); segundo o The Batch, usa 29% menos tokens de saída que o Opus 5.5.",
+      "community_benchmark": "#1 no LMArena Text (1526, preliminar), #4 no WebDev (1768), #3 na Artificial Analysis (60, atrás de Fable 5.2 e GPT-6.2 Astra), #2 no Terminal-Bench 4.0 (65,2%) e #2 no Vals Index. No HN elogiam análises que acham pontos que outros modelos perderam e o consideram muito superior ao Argon; as queixas são lentidão, consumo pesado da cota nos planos Pro/Ultra, rollout confuso e que 'mais barato na tabela não significa mais barato no uso'.",
       "sources": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
         "https://aistudio.google.com/docs/models/gemini-4-carbon",
@@ -203,7 +227,8 @@
         "https://artificialanalysis.ai/models/gemini-4-carbon",
         "https://arena.ai/leaderboard/text",
         "https://www.deeplearning.ai/the-batch/gemini-leads-the-pack-again/",
-        "https://news.ycombinator.com/item?id=50442303"
+        "https://news.ycombinator.com/item?id=50442303",
+        "https://artificialanalysis.ai/leaderboards/models"
       ]
     },
     {
@@ -340,11 +365,12 @@
       "description": "Grok 4.7 (21/09/2026) é o modelo frontier mais capaz da xAI, focado em código, agentes e trabalho de escritório; texto e imagem de entrada, raciocínio em 4 níveis e contexto de 500K. US$ 2 / US$ 6 por 1M (o dobro acima de 200K de prompt).",
       "when_use": "Sessões agênticas longas de código (Cursor, Grok Build), revisão de código como segundo par de olhos, front-end, trabalho jurídico e de engenharia e fluxos com muitas chamadas de ferramenta em paralelo. Não use quando custo por tarefa ou latência importam (gasta muitos tokens), para textos longos bem escritos ou quando os dados precisam ficar na UE (API só nos EUA).",
       "effiency": "Código agêntico de longa duração: 71,0% no DeepSWE v1.1 e 46,3% no CursorBench 4.0 (números do fabricante), e 1º no Harvey Legal Agent.",
-      "community_benchmark": "35 na Artificial Analysis (posição 45 de 80, abaixo da mediana) e muito verboso (US$ 7,77 por tarefa); #92 no LMArena Text, abaixo do Grok 4.6. No HN elogiam que acha bugs que Fable e Astra deixam passar, é ótimo em ferramentas paralelas e front-end e recusa pouco; criticam a queima de tokens (centenas de tool calls onde o Opus usaria 5-10), a lentidão e que não chega ao nível de Sol/Opus.",
+      "community_benchmark": "35 na Artificial Analysis (#16 no leaderboard Current, empatado com o Tencent Hy4; abaixo da média dos modelos comparáveis) e muito verboso (US$ 7,77 por tarefa); #92 no LMArena Text, abaixo do Grok 4.6. No HN elogiam que acha bugs que Fable e Astra deixam passar, é ótimo em ferramentas paralelas e front-end e recusa pouco; criticam a queima de tokens (centenas de tool calls onde o Opus usaria 5-10), a lentidão e que não chega ao nível de Sol/Opus.",
       "sources": [
         "https://docs.x.ai/docs/models/grok-4.7",
         "https://x.ai/news/grok-4-7",
         "https://artificialanalysis.ai/models/grok-4-7",
+        "https://artificialanalysis.ai/leaderboards/models",
         "https://arena.ai/leaderboard/text",
         "https://news.ycombinator.com/item?id=49788838"
       ]
@@ -382,11 +408,12 @@
       "description": "Muse Wonder (12/10/2026) é o modelo frontier fechado da Meta Superintelligence Labs e o mais capaz da Meta acessível via API (em preview). Recebe texto, imagem, vídeo, áudio e PDF, com contexto de ~1M; US$ 4 / US$ 20 por 1M.",
       "when_use": "Loop principal de agentes de longo prazo (planejamento, subagentes, ferramentas em paralelo), mudanças em muitos arquivos com verificação, computer use e tarefas jurídicas e financeiras, delegando subtarefas ao Muse Ember. Não use com orçamento apertado (mesmo preço do Opus 5.5), para UI/HTML que exige bom gosto, nem se precisar de pesos abertos.",
       "effiency": "Agentes e código de longo prazo: 78,8 no DeepSWE 1.1 e 53,1 no SWE-Marathon, acima do Opus 5.5 segundo a Meta.",
-      "community_benchmark": "#3 no LMArena Text (1511), a melhor posição da Meta, mas só 44 na Artificial Analysis (#35 de 80, US$ 6,95 por tarefa). No HN reclamam que os benchmarks do marketing são do Wonder Full, que fica bem atrás do Opus 5.5 em image-to-HTML, que falta 'taste e judgment', que entra em loop em ciclos simples de revisão e que é caro.",
+      "community_benchmark": "#3 no LMArena Text (1511), a melhor posição da Meta, mas só 44 na Artificial Analysis (#12 no leaderboard Current, US$ 6,95 por tarefa). No HN reclamam que os benchmarks do marketing são do Wonder Full, que fica bem atrás do Opus 5.5 em image-to-HTML, que falta 'taste e judgment', que entra em loop em ciclos simples de revisão e que é caro.",
       "sources": [
         "https://dev.meta.ai/docs/muse-wonder",
         "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
         "https://artificialanalysis.ai/models/muse-wonder",
+        "https://artificialanalysis.ai/leaderboards/models",
         "https://arena.ai/leaderboard/text",
         "https://news.ycombinator.com/item?id=50059115"
       ]
